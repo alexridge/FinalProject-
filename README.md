@@ -27,7 +27,7 @@
   + [Alex Ridgeway](https://github.com/alexridge)
   + [Naomi Starr]()
   + [Matthew Barber]()
-  + [Leon Peterking]()
+  + [Leon Peterkin]()
   + [Valerio Franchi](https://github.com/Mahasiddha95)
 
 ####Technologies
