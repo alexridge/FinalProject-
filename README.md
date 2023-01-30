@@ -167,3 +167,9 @@ Otherwise you can install them using the following command in the Server folder:
 ```
 npm install mongodb express cors dotenv
 ```
+
+Install Cypress for testing: 
+
+```
+npm install cypress
+```
