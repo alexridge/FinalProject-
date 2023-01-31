@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HomepageData from '../components/homepageData'
 import './homepage.css';
-
+import Navbar from '../components/navbar/Navbar';
 
 const homepage= () => {
   console.log('it has loaded');
@@ -19,11 +19,17 @@ const homepage= () => {
 window.addEventListener('load', homepage);
 
 return(
+  <div className='whole-app'>
+  <Navbar/>
   <div className='window'>
+     <div className='whole-window'>
+ 
     <p> Homepage in pages loading</p>
     <div>
     <HomepageData/>
     </div>
+  </div>
+  </div>
   </div>
 )
 };
