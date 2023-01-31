@@ -1,0 +1,23 @@
+nav {
+    background-color: blueviolet;
+    height: 6rem;
+    margin: 0 0;
+    padding: 0 0;
+}
+
+nav, p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #fff;
+    font-weight: 600;
+    font-size: larger;
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0 2rem;
+    border-radius: 4px;
+    height: 1.6rem;
+    width: 4rem;
+}

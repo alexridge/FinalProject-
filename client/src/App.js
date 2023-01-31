@@ -1,4 +1,6 @@
-import './App.css';
+import "./App.css";
+import Navbar from "./components/navbar/Navbar";
+import logo from "./logo.svg";
 import React, { useState } from 'react';
 import {
   useNavigate,
@@ -8,11 +10,11 @@ import {
 import Homepage from './pages/homepage';
 
 const App = () => {
-    return (
-        <Routes>
-          <Route path='/'  element={<Homepage navigate={ useNavigate() }/>}/>
-        </Routes>
-    );
+  return (
+    <Routes>
+       <Route path='/'  element={<Homepage navigate={ useNavigate() }/>}/>
+    </Routes>
+  );
 }
 
 export default App;
