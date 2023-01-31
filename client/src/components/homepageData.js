@@ -1,5 +1,6 @@
 import { React } from "react";
 import PropTypes from 'prop-types';
+import './homepageData.css';
 
 
 const homepageData = ({}) => {
@@ -21,7 +22,7 @@ const homepageData = ({}) => {
   //     .then(console.log).catch(console.error);
 
 return (
- <div className="whole-page">
+ <div className="event-page">
     <div className="event-box">
         <div className="event-image">
           <p>Homepage in components loading</p>

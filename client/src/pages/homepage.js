@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HomepageData from '../components/homepageData'
+import './homepage.css';
+
 
 const homepage= () => {
   console.log('it has loaded');
@@ -17,7 +19,7 @@ const homepage= () => {
 window.addEventListener('load', homepage);
 
 return(
-  <div>
+  <div className='window'>
     <p> Homepage in pages loading</p>
     <div>
     <HomepageData/>
