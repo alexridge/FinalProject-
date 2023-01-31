@@ -7,3 +7,9 @@ const app = express();
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+
+module.exports = app;
