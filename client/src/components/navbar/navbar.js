@@ -1,3 +1,5 @@
+import './Navbar.css'
+
 const Navbar = () => {
 
     return (
@@ -5,7 +7,7 @@ const Navbar = () => {
             <p>This Day In History</p>
             <button data-cy="login-button">Login</button>
             <button data-cy="filter-button">Filter</button>
-
+            <button data-cy="signup-button">Sign Up</button>
         </nav>
         
     )

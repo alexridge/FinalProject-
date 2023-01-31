@@ -15,4 +15,9 @@ describe("Testing for the Navbar component", ()=> {
       cy.mount(<Navbar/>);
       cy.get('[data-cy="filter-button"]').should('contains.text', "Filter")
   })
+
+  it ("Should have a sign up button", ()=> {
+    cy.mount(<Navbar/>);
+    cy.get('[data-cy="signup-button"]').should('contains.text', "Sign Up")
+  })
 })
