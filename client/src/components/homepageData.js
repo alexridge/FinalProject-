@@ -19,13 +19,15 @@ const homepageData = async() => {
       }
   );
   
-  if (response.status !== 200) {
-    console.log("it's broken")
-  } else {console.log(response.json())};
-    
+  const data = response.json();
+  if (response.status === 200) {
+    data.then(console.log);}
+  else { data.then.catch(console.error)};
 
+  
 
 return (
+ 
  <div className="event-page">
     <div className="event-box">
         <div className="event-image">
@@ -36,6 +38,7 @@ return (
   
     </div>
  </div>
+
 )};
 
 export default homepageData;
