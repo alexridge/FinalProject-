@@ -11,7 +11,7 @@ router.post("/", async(req,res) => {
         const user = await User.signup(email, password);
         res.status(201).json({email})
     }catch{
-        res.status(400).json({error: error.message})
+        res.status(400).json()
     }
 } );
 
