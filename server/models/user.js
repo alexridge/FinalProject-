@@ -6,5 +6,17 @@ const UserSchema = new mongoose.Schema({
 
 });
 
+UserSchema.statics.signup = async function(email, password);
+
+const exists = await this.findOne({email});
+
+if (exists){
+    throw Error('Email is already in use')
+}else{
+    const user = await this.create({email, password});
+
+    return user
+}
+
 const User = mongoose.model("User", UserSchema);
 module.exports = User;
