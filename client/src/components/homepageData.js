@@ -31,12 +31,12 @@ import React, { useState, useEffect } from "react";
 // import PropTypes from 'prop-types';
 import './homepageData.css';
 
-
 const HomepageData = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [eventsTitles, setEventsTitles ] = useState(null);
-  const [eventsExtract, setEventsExtract ] = useState(null);
+  // const [eventsPages, setEventsPages ] = useState(null);
+  // const [eventsImages, setEventsImages ] = useState(null);
 
 
   useEffect(() => {
@@ -55,19 +55,26 @@ const HomepageData = () => {
       });
   
       const data = await response.json();
-      const eventsTitles = data.events.map(item => (item.pages));
-      const eventsExtract = eventsTitles.map(item => (item.extract));
+      const eventsTitles = data.events.map(item => (item.text));
+      console.log(eventsTitles);
+
+      // const eventsPages = data.events.map(item => (item.pages));
+      // console.log(eventsPages);
+      // const eventsImages = eventsPages.map(item => item.thumbnail.source);
+      // console.log(eventsImages);
+      
 
       setData(data);
       setLoading(false);
       setEventsTitles(eventsTitles);
-      // console.log(`data is ${data}`)
-     console.log(eventsExtract)
-      setEventsExtract(eventsExtract);
+      // setEventsPages(eventsPages);
+      // setEventsImages(eventsImages);
+
+     
     };
 
     fetchData();
-    });
+    }, []);
 
 
 
@@ -78,10 +85,10 @@ const HomepageData = () => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <ul><li>
-             { eventsExtract }
-             
-             </li>
+            <ul>
+              <li>
+             { eventsTitles[1]}
+              </li>
             </ul>
           )}
         </div>

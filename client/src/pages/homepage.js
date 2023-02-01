@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HomepageData from '../components/homepageData'
 import './homepage.css';
-import Navbar from '../components/navbar/navbar';
+import Navbar from '../components/navbar/Navbar';
 import homepageData from '../components/homepageData';
 
 
