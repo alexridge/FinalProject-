@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import HomepageData from '../components/homepageData'
 import './homepage.css';
 import Navbar from '../components/navbar/Navbar';
+import homepageData from '../components/homepageData';
 
 
 class ErrorBoundary extends React.Component {
@@ -32,9 +33,6 @@ class ErrorBoundary extends React.Component {
 }
 
 
-
-
-
 const homepage= () => {
   // console.log('it has loaded');
   // console.log(HomepageData)
@@ -50,7 +48,7 @@ return(
     <p> Homepage in pages loading</p>
     <div>
     <ErrorBoundary>
-    <HomepageData/>
+     <HomepageData/>
     </ErrorBoundary>
     </div>
   </div>
