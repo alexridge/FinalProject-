@@ -35,6 +35,8 @@ import './homepageData.css';
 const HomepageData = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [eventsTitles, setEventsTitles ] = useState(null);
+  const [eventsExtract, setEventsExtract ] = useState(null);
 
 
   useEffect(() => {
@@ -47,34 +49,39 @@ const HomepageData = () => {
       let response = await fetch( url, {
         method: 'get',
           headers: {
-              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6ImJlMmVjNzViNDcwZGYwZWExMjk0MGRiNGJmYmQ1MGQwZWJkNzM4NTdkMTNlZTRlOTMyMzAyNDMyNjczYzliODlkODFiOGQzOTNkNWZiMWE1IiwiaWF0IjoxNjc1MjQ3NDY1LjIzNjIzNSwibmJmIjoxNjc1MjQ3NDY1LjIzNjIzOSwiZXhwIjoxNjc1MjYxODY1LjIzMDA1MSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.GP4zwxWvhmi9mYq2I44rvr3W8MJJKVBqMhOqkSpa_RYDtH1GJ3z19hsXsnO71vbNikZhMqNbjQl_c_bpEMPtg1i77DYT4dXbzHi18IRTNeW8Uh6lfacIriditVdq3JtaQ_bow09Xzwet0ywDetBk-e1ojidP8qMKjK0LtH3y_zZGrYaKBpQB-1uc1gOHdwA5-IqVY1URsI98fnvqjYOGVVL4vQiJ9GbBF91VN7oSWoMH4KGeEDe_hv8KPok6dzqrxbyRi4SLOF9jI3wAwlN-rzRRKwE57RniYa3irmnWp1HmOTPa8r052fqehEvxNcLcKE3zlcf3-KyKZJTdD8W9ZzI1mkdUL9JBrnArTvMshyMGjlBGLj5OmgqfNG_NWEBixgV68VHXOOtmtcu1CBgGGv6OuGx6mNth2qEJsVKkE1sqpe97pOhiwatqYuHL-CEIWcD60cNK5CvD-Z5p2y8XgJ4XiqNcdW8eZv7r60nvGksmVdDkCoyTxILR6J4aNFjug7WEav3UpA--13fl0rKoHPKK7bgqaaWT0unjUjZgw7QCABGgzWoFD-GbEkzo50KZQXjCeHllabN55RFLd2vN7N_DIXQKKaBVu-xRt1jXvzblrvnFYCSTtXkTE7h4wXPlCbIcaUP8PhqcxdSY6h4bH4VU22b_wIf3m9Y2FpMB2Kw',
+              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6ImQxMjUxNjQzZDYxOWI1NGY4MjI2ZTlmNjlmZmFkNzdmZmVhMjA3Y2QwMzcxYTJhM2RlMjE5ZGNhNzc2ZDcyYmJjOGJiYmM4YmQxNTEwYzQ0IiwiaWF0IjoxNjc1MjYzMDk3LjgzODEyOSwibmJmIjoxNjc1MjYzMDk3LjgzODEzNiwiZXhwIjoxNjc1Mjc3NDk3LjgzMTk0Miwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.Hk3ISW7Y-6DKQrQXF4xnEU-IXkk3jKARu1A92vdj-1-jVLrRajvH0YqVMU7_7MtYmgxBS40ETQw47zp2JTd8TSttK0_yWzM_gkFJL5f9VST3s9_Ux2PfUaucIqavZwnfooCQUpCBDirWkjFWycFtTYM1ywm9MOry2h1AU6u5Zmv36Urwzgzj8J0j-JwdrZI4iNzRNKAInv6Pq2wdvAM2Ce1JC-rDvD8eh52mv4xN1bweKx0hoHZxykL49Daf6uUrdrjLVmW7VhMilEDIbj6AJG9cbgfPhkOkhUlqEvXdudjz3Z5B8szmxWgTukYf8pD54PIrYImaio08AbEVmexHD3f8n0VVIdtWsVfscZZ6QiN4J1ncZGaZ3EaYYQcZcoPe71eack6Qb8-QIThD2IzoXOseB0_XIyT-_BwHWaLPV1QQIFlwRyXNl4Ucjn0_6ISZayOTqHgNz_BS89_yaReHeyGmBh2wpw66PxH9CpiIGI-hFdB4mSehEuJ1oFeHIyoL673BCTKsFufIBggiPkTlh8fTjTVJvlXW3uOPlGUjV_D224Uqr0S4U3sYXsO8QvuwNgZK3a7PEEylq3sv4K3Oa-Dw6SFvb4GbxA0fA09BDxerkFlKkgXpVEKH_98X0vlipr9Dgg02WS9INX6AqOBOvDadXBuivfXYe2oUOlke6o0',
               'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
           }
       });
   
       const data = await response.json();
-      
+      const eventsTitles = data.events.map(item => (item.pages));
+      const eventsExtract = eventsTitles.map(item => (item.extract));
+
       setData(data);
       setLoading(false);
-
+      setEventsTitles(eventsTitles);
+      // console.log(`data is ${data}`)
+     console.log(eventsExtract)
+      setEventsExtract(eventsExtract);
     };
 
     fetchData();
     });
 
+
+
+    
     return (
       <div className="event-page">
         <div className="event-box">
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <ul>
-              {data.events.map(item => (
-                <li key={item.timestamp}>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </li>
-              ))}
+            <ul><li>
+             { eventsExtract }
+             
+             </li>
             </ul>
           )}
         </div>
