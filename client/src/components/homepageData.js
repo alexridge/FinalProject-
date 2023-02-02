@@ -45,8 +45,6 @@ const HomepageData = () => {
       const eventsLink = eventsPages.map(page => (page[0].content_urls.desktop.page));
       // console.log(eventsLink);
 
-
-      var index = 1;
    
       setData(data);
       setLoading(false);
@@ -55,13 +53,15 @@ const HomepageData = () => {
       // setEventsImages(eventsImages);
       setEventsExtract(eventsExtract);
       setEventsLink(eventsLink);
-       setIndex(index);
+       setIndex(1);
     };
 
     fetchData();
     }, []);
 
-     
+     let handleClick = () => {
+      setIndex(index + 1); 
+     }
 
     
     return (
@@ -84,7 +84,7 @@ const HomepageData = () => {
             </ul>
             <a href={eventsLink[-1 + index]}>Click to read more</a>
             </div>
-            <button> 
+            <button onClick={handleClick}> 
             Next
              </button>
             <p>current page {index} / {eventsExtract.length}</p>
