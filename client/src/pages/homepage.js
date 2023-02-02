@@ -4,6 +4,8 @@ import HomepageData from '../components/homepageData'
 import './homepage.css';
 import Navbar from '../components/navbar/navbar';
 import homepageData from '../components/homepageData';
+import './homepage.css';
+
 
 
 class ErrorBoundary extends React.Component {

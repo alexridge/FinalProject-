@@ -35,9 +35,7 @@ import './homepageData.css';
 const HomepageData = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [eventsTitles, setEventsTitles ] = useState(null);
-  const [eventsExtract, setEventsExtract ] = useState(null);
-
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,25 +47,37 @@ const HomepageData = () => {
       let response = await fetch( url, {
         method: 'get',
           headers: {
-              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6ImQxMjUxNjQzZDYxOWI1NGY4MjI2ZTlmNjlmZmFkNzdmZmVhMjA3Y2QwMzcxYTJhM2RlMjE5ZGNhNzc2ZDcyYmJjOGJiYmM4YmQxNTEwYzQ0IiwiaWF0IjoxNjc1MjYzMDk3LjgzODEyOSwibmJmIjoxNjc1MjYzMDk3LjgzODEzNiwiZXhwIjoxNjc1Mjc3NDk3LjgzMTk0Miwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.Hk3ISW7Y-6DKQrQXF4xnEU-IXkk3jKARu1A92vdj-1-jVLrRajvH0YqVMU7_7MtYmgxBS40ETQw47zp2JTd8TSttK0_yWzM_gkFJL5f9VST3s9_Ux2PfUaucIqavZwnfooCQUpCBDirWkjFWycFtTYM1ywm9MOry2h1AU6u5Zmv36Urwzgzj8J0j-JwdrZI4iNzRNKAInv6Pq2wdvAM2Ce1JC-rDvD8eh52mv4xN1bweKx0hoHZxykL49Daf6uUrdrjLVmW7VhMilEDIbj6AJG9cbgfPhkOkhUlqEvXdudjz3Z5B8szmxWgTukYf8pD54PIrYImaio08AbEVmexHD3f8n0VVIdtWsVfscZZ6QiN4J1ncZGaZ3EaYYQcZcoPe71eack6Qb8-QIThD2IzoXOseB0_XIyT-_BwHWaLPV1QQIFlwRyXNl4Ucjn0_6ISZayOTqHgNz_BS89_yaReHeyGmBh2wpw66PxH9CpiIGI-hFdB4mSehEuJ1oFeHIyoL673BCTKsFufIBggiPkTlh8fTjTVJvlXW3uOPlGUjV_D224Uqr0S4U3sYXsO8QvuwNgZK3a7PEEylq3sv4K3Oa-Dw6SFvb4GbxA0fA09BDxerkFlKkgXpVEKH_98X0vlipr9Dgg02WS9INX6AqOBOvDadXBuivfXYe2oUOlke6o0',
+              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjM1Y2RkNzQ3M2RiYmQ2MjExYmVmYTZjNmJiZWNkNTM4NWRmYmFhN2NmZjg4NWMzOTcyNTc1ZGNhYmFlZDBhMDg3MmFlMDViYWQzZjVmOTAzIiwiaWF0IjoxNjc1MzMzNTg3LjUyMDU1OSwibmJmIjoxNjc1MzMzNTg3LjUyMDU2MywiZXhwIjoxNjc1MzQ3OTg3LjUxNDEwNSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.fIcOF76G71k2BNjWj1hMB-s4oNYiFecc-c99tu7uPdiIb6vQfTFfhYSTx8AQ_zbI5HVEPotg_T7cQi8nIOyE237U1IIfSSoIBb9jS2AKlTJoAhKlDIGNBLr0nOqo7SPeAN7mkIYb1rUEmYgdxMv3szLRPWBG1-en031pnjDhRGdcrusddo1iOpBdr6KlYBQB9XHrOEQC9YB5smByNKFqBj3mwhRpISveB9Nn3rV4CoL_lBpxRzPhcSn9ihPPTcadcCZ-OCKvgXCJfGsXE874cQQwvF36PMpbnoFjOMzkCr157fxgd3_B7XYVF1ePhOF-U7euqmZCQp9NrrA7zSDI31ub18578I-cSZ2qxNRWC1mkl6515_AjYy1UXAW-cQ6p2Ny4ZfAYKnZsrb-xjvgDWdvR7Ku_-eWxvqomUoDAFN4asPqaNZSPkigzaKwiQOH4mpx5Qh7RzA5fhIu8OealUnFi-l2G6uRAZIe63Ddea7gt_oXfjYQLGeZdqGvnbd3A4x5c1n2Ok9UCmWzVlsPrVA9pciH0ffEcv9U5znGwd81uQ9KgoOH7MIeOgYbfGMAY0Lrf3J59FX9fl-gCId-ICPeWOxdhGgi4sRC3sRanGpOT19EDUTqU5FNjVcZKPFgS7vwppwYxLsGirnXpo2Y4QLK8p45WtSDLdhZOYGczUO8',
               'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
           }
       });
+
+      console.log(response)
+
   
       const data = await response.json();
-      const eventsTitles = data.events.map(item => (item.pages));
-      const eventsExtract = eventsTitles.map(item => (item.extract));
+      const event = data.events[0];
+      const eventTitle = event.pages[0].title.replace(/_/g, ' ');
+      const eventExtract = event.pages[0].extract;
+ 
+      console.log(data)
+      console.log(event)
+      console.log(eventTitle)
+      console.log(eventExtract)
 
-      setData(data);
-      setLoading(false);
-      setEventsTitles(eventsTitles);
-      // console.log(`data is ${data}`)
-     console.log(eventsExtract)
-      setEventsExtract(eventsExtract);
-    };
 
+
+
+      setData({
+        title: eventTitle,
+        extract: eventExtract,
+        images: event.images
+      });
+
+       setLoading(false);
+      };
     fetchData();
-    });
+    }, []);
 
 
 
@@ -78,16 +88,23 @@ const HomepageData = () => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <ul><li>
-             { eventsExtract }
-             
-             </li>
-            </ul>
+            <>
+              {data && (
+                <>
+                  <h3>{data.title}</h3>
+                  <p>{data.extract}</p>
+                  {data.images && data.images.map(image => (
+                    image.url && (
+                      <img src={ image.url } alt="Trees" height="200" />
+                    )
+                  ))}
+                </>
+              )}
+            </>
           )}
         </div>
       </div>
     );
-    
   };
 
 export default HomepageData;
