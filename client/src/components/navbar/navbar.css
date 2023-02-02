@@ -1,8 +1,9 @@
 nav {
     background-color: blueviolet;
+    width: 100vw;
     height: 6rem;
     margin: 0 0;
-    padding: 0 0;
+    padding: 1rem 0;
 }
 
 nav, p {

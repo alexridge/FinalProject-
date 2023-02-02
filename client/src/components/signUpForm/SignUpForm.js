@@ -38,8 +38,8 @@ const SignUpForm = () => {
             <label>Email Address</label>
             <input placeholder='Email' type="email" value={email} onChange={handleEmailChange}></input>
             <label>Password</label>
-            <input placeholder="password" type="password" value={password} onChange={handlePasswordChange}></input>
-            <input type="submit" value="submit" />
+            <input placeholder="Password" type="password" value={password} onChange={handlePasswordChange}></input>
+            <input type="submit" value="Submit" />
         </form>
     )
 }
