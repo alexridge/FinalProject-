@@ -1,43 +1,21 @@
-// import { React } from "react";
-// import './apiData'; 
-// import apiData from "./apiData";
-// // import PropTypes from 'prop-types';
-// import './homepageData.css';
-
-
-
-// const homepageData = () => {
-
-//   const data =  apiData();
-
-// return (
- 
-//  <div className="event-page">
-//     <div className="event-box">
-//         <div className="event-image">
-//           <p>{data}</p>
-//         </div>
-//         <div className="event-text">
-//         </div>
-//     </div>
-//  </div>
-
-// )};
-
-// export default homepageData;
-
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 // import PropTypes from 'prop-types';
 import './homepageData.css';
+
+
 
 const HomepageData = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [eventsTitles, setEventsTitles ] = useState(null);
-  // const [eventsPages, setEventsPages ] = useState(null);
+  // const [eventsTitles, setEventsTitles ] = useState(null);
+  const [eventsSources, setEventsSources ] = useState(null);
   // const [eventsImages, setEventsImages ] = useState(null);
-
+  const [eventsExtract, setEventsExtract ] = useState(null);
+  const [eventsLink, setEventsLink ] = useState(null);
+  // const [randPage, setRandomPage ] = useState(null);
+  const [index, setIndex] = useState(null);
+ 
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,48 +27,70 @@ const HomepageData = () => {
       let response = await fetch( url, {
         method: 'get',
           headers: {
-              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6ImQxMjUxNjQzZDYxOWI1NGY4MjI2ZTlmNjlmZmFkNzdmZmVhMjA3Y2QwMzcxYTJhM2RlMjE5ZGNhNzc2ZDcyYmJjOGJiYmM4YmQxNTEwYzQ0IiwiaWF0IjoxNjc1MjYzMDk3LjgzODEyOSwibmJmIjoxNjc1MjYzMDk3LjgzODEzNiwiZXhwIjoxNjc1Mjc3NDk3LjgzMTk0Miwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.Hk3ISW7Y-6DKQrQXF4xnEU-IXkk3jKARu1A92vdj-1-jVLrRajvH0YqVMU7_7MtYmgxBS40ETQw47zp2JTd8TSttK0_yWzM_gkFJL5f9VST3s9_Ux2PfUaucIqavZwnfooCQUpCBDirWkjFWycFtTYM1ywm9MOry2h1AU6u5Zmv36Urwzgzj8J0j-JwdrZI4iNzRNKAInv6Pq2wdvAM2Ce1JC-rDvD8eh52mv4xN1bweKx0hoHZxykL49Daf6uUrdrjLVmW7VhMilEDIbj6AJG9cbgfPhkOkhUlqEvXdudjz3Z5B8szmxWgTukYf8pD54PIrYImaio08AbEVmexHD3f8n0VVIdtWsVfscZZ6QiN4J1ncZGaZ3EaYYQcZcoPe71eack6Qb8-QIThD2IzoXOseB0_XIyT-_BwHWaLPV1QQIFlwRyXNl4Ucjn0_6ISZayOTqHgNz_BS89_yaReHeyGmBh2wpw66PxH9CpiIGI-hFdB4mSehEuJ1oFeHIyoL673BCTKsFufIBggiPkTlh8fTjTVJvlXW3uOPlGUjV_D224Uqr0S4U3sYXsO8QvuwNgZK3a7PEEylq3sv4K3Oa-Dw6SFvb4GbxA0fA09BDxerkFlKkgXpVEKH_98X0vlipr9Dgg02WS9INX6AqOBOvDadXBuivfXYe2oUOlke6o0',
+              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjhmNmI2ZmY2OGYxYTM5OTIzZGEzZDA1NWUzY2Y1NjJmNjFmYjFmMDcwNDQwOTJhN2ZmZjJhMGYwZjczYWJkNzVjZjUxYzM1YjQ2NzczNmIxIiwiaWF0IjoxNjc1MzQ3NDY2LjA3OTkyOCwibmJmIjoxNjc1MzQ3NDY2LjA3OTkzMywiZXhwIjoxNjc1MzYxODY2LjA3NDcyMiwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.EqSZ57fSn6Vu8T4X6TL_TF-Jf7MQ1FS1eEu8MHb-KLaTz5T-eGiKZNGnxOOJlFxkJn5Lb_RJpzSXn7wumqgH0rJfnjypcltkAGUFi81Qw6Xi_0t0d9M7dNbhKMfDEv2OF6qyqCN2_6wG59pIHs8H2BF0bzx1ggPTdIxDXv-K8bWRoxKm9V1-j4GRfyUMZJNzyhhw7iTIV3BevF8zzKdEm8sgkeZ_uuVIoqSZjvmxzoTCtsy2fCbPzbyb7pjefyu1DkhmgiWPiWAYlAzpFGTW1bE-XMY3YA4_0_LXltEelIYm4eSlAMtYgynic4xQE1y55KL9neKglvcAUq8DXQtRM2HRqJypv7G0qyl0VWUKaS-W69ciNBKC3T0V0K6qdLtQgzbS_4M23s2V_alSyWF9FjYOkD9YbXRD1HazhOV_6mvL8cmfiRRCWs16zQ7IhcnMAZf0vvNoVhPRJ63TRDMx1ogu7CF1Nlb7iMizyS9N0m9wbb90Ae4rJGHJQai_nO77aheMKyZ1LtdFSYQE8wuf4rMJ2xa08yf6ws9RIxfC2DhzG9DY_qlBd3Kcc1_yDQU3-2kVkiz_OlJoo4texpyH4fXjv_jnHneO6P81un-u9GRhU-XsCPb-xJfbgA6ACC16OMTjvDQxj0-FTmoK72HFJ6sPst7E6OOZ7nZoTBznXDc',
               'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
           }
       });
-  
+
       const data = await response.json();
-      const eventsTitles = data.events.map(item => (item.text));
-      console.log(eventsTitles);
-
-      // const eventsPages = data.events.map(item => (item.pages));
+      // const eventsTitles = data.events.map(item => (item.text));
+      // console.log(eventsTitles);
+      const eventsPages = data.events.map(event => (event.pages));
       // console.log(eventsPages);
-      // const eventsImages = eventsPages.map(item => item.thumbnail.source);
+      const eventsImages = eventsPages.map(page => (page[0].originalimage));
       // console.log(eventsImages);
-      
+      const eventsExtract = eventsPages.map(page => (page[0].extract));
+      const eventsSources = eventsImages.map(image => {if(image !== undefined){return(image.source)} else {return("https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg")}});
+      // console.log(eventsSources);
+      const eventsLink = eventsPages.map(page => (page[0].content_urls.desktop.page));
+      // console.log(eventsLink);
 
+
+      var index = 1;
+   
       setData(data);
       setLoading(false);
-      setEventsTitles(eventsTitles);
-      // setEventsPages(eventsPages);
+      // setEventsTitles(eventsTitles);
+      setEventsSources(eventsSources);
       // setEventsImages(eventsImages);
-
-     
+      setEventsExtract(eventsExtract);
+      setEventsLink(eventsLink);
+       setIndex(index);
     };
 
     fetchData();
     }, []);
 
-
+     
 
     
     return (
       <div className="event-page">
+
         <div className="event-box">
+ 
           {loading ? (
             <p>Loading...</p>
           ) : (
+            <>
+            <div className="event-image">
+              <img src={eventsSources[-1 + index]} alt="img" width="40%" height="40%"/>
+            </div>
+              <div className="event-text">
             <ul>
               <li>
-             { eventsTitles[1]}
+             { eventsExtract[-1 + index] }
               </li>
             </ul>
+            <a href={eventsLink[-1 + index]}>Click to read more</a>
+            </div>
+            <button> 
+            Next
+             </button>
+            <p>current page {index} / {eventsExtract.length}</p>
+            </>
           )}
+         
         </div>
       </div>
     );
@@ -98,3 +98,4 @@ const HomepageData = () => {
   };
 
 export default HomepageData;
+
