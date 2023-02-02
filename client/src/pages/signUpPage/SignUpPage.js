@@ -5,7 +5,7 @@ import SignUpForm from "../../components/signUpForm/SignUpForm";
 const SignUpPage = () => {
 
     return (
-        <body>
+        <div>
             <div>
                 <Navbar />
             </div>
@@ -13,7 +13,7 @@ const SignUpPage = () => {
                 <h2 data-cy="form-header">Sign Up</h2>
                 <SignUpForm />
             </div>
-        </body>
+        </div>
     )
 }
 

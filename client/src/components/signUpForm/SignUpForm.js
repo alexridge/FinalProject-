@@ -1,5 +1,5 @@
 import './SignUpForm.css'
-import React, { useState } from 'React'
+import React, { useState } from 'react'
 
 const SignUpForm = () => {
 
@@ -29,7 +29,7 @@ const SignUpForm = () => {
                 console.log('Success:', data);
             })
             .catch((error) => {
-                console.error('Error:', error);
+                console.log('Error:', error);
             });
     }
 

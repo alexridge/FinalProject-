@@ -1,10 +1,19 @@
 const express = require("express");
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+// const cors = require('cors')
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.json())
+
+//use cors to allow cross origin resource sharing
+// app.use(
+//     cors({
+//       origin: 'http://localhost:3000',
+//       credentials: true,
+//     })
+//   );
 
 // Route set up 
 const usersRouter = require('./routes/users')
