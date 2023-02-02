@@ -1,42 +1,12 @@
-// import { React } from "react";
-// import './apiData'; 
-// import apiData from "./apiData";
-// // import PropTypes from 'prop-types';
-// import './homepageData.css';
-
-
-
-// const homepageData = () => {
-
-//   const data =  apiData();
-
-// return (
- 
-//  <div className="event-page">
-//     <div className="event-box">
-//         <div className="event-image">
-//           <p>{data}</p>
-//         </div>
-//         <div className="event-text">
-//         </div>
-//     </div>
-//  </div>
-
-// )};
-
-// export default homepageData;
-
-
 import React, { useState, useEffect } from "react";
-// import PropTypes from 'prop-types';
 import './homepageData.css';
-
+import apiKey from './apiKey.env'
 
 const HomepageData = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [eventsTitles, setEventsTitles ] = useState(null);
-  const [eventsExtract, setEventsExtract ] = useState(null);
+  const [eventsImage, setEventsImage ] = useState(null);
 
 
   useEffect(() => {
@@ -53,25 +23,25 @@ const HomepageData = () => {
               'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
           }
       });
-  
-      const data = await response.json();
-      const eventsTitles = data.events.map(item => (item.pages));
-      const eventsExtract = eventsTitles.map(item => (item.extract));
 
+      const data = await response.json();
       setData(data);
       setLoading(false);
+
+      const dataEvents = data.events
+
+      const eventsTitles = dataEvents.map(item => (item.text));
       setEventsTitles(eventsTitles);
-      // console.log(`data is ${data}`)
-     console.log(eventsExtract)
-      setEventsExtract(eventsExtract);
+
+      // const eventsImage = dataEvents.map(item => (item.pages.thumbnail.source));
+      const eventsImage = data.events[0].pages[0].thumbnail.source
+      console.log(data.events[0].pages[0].thumbnail)
+      setEventsImage(eventsImage)
     };
 
     fetchData();
-    });
+    }, []);
 
-
-
-    
     return (
       <div className="event-page">
         <div className="event-box">
@@ -79,15 +49,15 @@ const HomepageData = () => {
             <p>Loading...</p>
           ) : (
             <ul><li>
-             { eventsExtract }
-             
-             </li>
+              <img src={ eventsImage } alt="Trees" height="200" /><br/>
+              { eventsTitles[0] }
+              </li>
             </ul>
           )}
         </div>
       </div>
     );
-    
+
   };
 
 export default HomepageData;
