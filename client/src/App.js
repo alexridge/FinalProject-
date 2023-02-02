@@ -12,7 +12,7 @@ import Homepage from './pages/homepage';
 const App = () => {
   return (
     <Routes>
-       <Route path='/'  element={<Homepage navigate={ useNavigate() }/>}/>
+        <Route path='/'  element={<Homepage navigate={ useNavigate() }/>}/>
     </Routes>
   );
 }

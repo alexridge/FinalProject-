@@ -1,46 +1,39 @@
 import React, { useState, useEffect } from "react";
 import './homepageData.css';
-import apiKey from './apiKey.env'
+import api from './api/apiData'
+
 
 const HomepageData = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [eventsTitles, setEventsTitles ] = useState(null);
-  const [eventsImage, setEventsImage ] = useState(null);
-
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(null)
+  // const [eventsTitles, setEventsTitles ] = useState(null);
+  // const [eventsImage, setEventsImage ] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      let today = new Date();
-      let month = today.getMonth() + 1;
-      let day = today.getDate();
-      let url = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`;
+    const fetchPosts = async () => {
+      try{
+        const response = await api.get('/')
+        console.log('response received in try catch homepage data')
+        setData(response.data)
+        console.log(data)
+      }catch (err){
+        console.log(`catch error in homepageData from axios useEffect ${err}`);
+      }
+    }
 
-      let response = await fetch( url, {
-        method: 'get',
-          headers: {
-              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjM1Y2RkNzQ3M2RiYmQ2MjExYmVmYTZjNmJiZWNkNTM4NWRmYmFhN2NmZjg4NWMzOTcyNTc1ZGNhYmFlZDBhMDg3MmFlMDViYWQzZjVmOTAzIiwiaWF0IjoxNjc1MzMzNTg3LjUyMDU1OSwibmJmIjoxNjc1MzMzNTg3LjUyMDU2MywiZXhwIjoxNjc1MzQ3OTg3LjUxNDEwNSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.fIcOF76G71k2BNjWj1hMB-s4oNYiFecc-c99tu7uPdiIb6vQfTFfhYSTx8AQ_zbI5HVEPotg_T7cQi8nIOyE237U1IIfSSoIBb9jS2AKlTJoAhKlDIGNBLr0nOqo7SPeAN7mkIYb1rUEmYgdxMv3szLRPWBG1-en031pnjDhRGdcrusddo1iOpBdr6KlYBQB9XHrOEQC9YB5smByNKFqBj3mwhRpISveB9Nn3rV4CoL_lBpxRzPhcSn9ihPPTcadcCZ-OCKvgXCJfGsXE874cQQwvF36PMpbnoFjOMzkCr157fxgd3_B7XYVF1ePhOF-U7euqmZCQp9NrrA7zSDI31ub18578I-cSZ2qxNRWC1mkl6515_AjYy1UXAW-cQ6p2Ny4ZfAYKnZsrb-xjvgDWdvR7Ku_-eWxvqomUoDAFN4asPqaNZSPkigzaKwiQOH4mpx5Qh7RzA5fhIu8OealUnFi-l2G6uRAZIe63Ddea7gt_oXfjYQLGeZdqGvnbd3A4x5c1n2Ok9UCmWzVlsPrVA9pciH0ffEcv9U5znGwd81uQ9KgoOH7MIeOgYbfGMAY0Lrf3J59FX9fl-gCId-ICPeWOxdhGgi4sRC3sRanGpOT19EDUTqU5FNjVcZKPFgS7vwppwYxLsGirnXpo2Y4QLK8p45WtSDLdhZOYGczUO8',
-              'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
-          }
-      });
-
-      const data = await response.json();
-      setData(data);
       setLoading(false);
+      console.log(data)
 
-      const dataEvents = data.events
+      // const dataEvents = data.events
+      // const eventsTitles = dataEvents.map(item => (item.text));
+      // setEventsTitles(eventsTitles);
 
-      const eventsTitles = dataEvents.map(item => (item.text));
-      setEventsTitles(eventsTitles);
+      // const eventsImage = data.events[0].pages[0].originalimage.source
+      // console.log(data.events[0].pages[0].originalimage)
+      // setEventsImage(eventsImage)
 
-      // const eventsImage = dataEvents.map(item => (item.pages.thumbnail.source));
-      const eventsImage = data.events[0].pages[0].originalimage.source
-      console.log(data.events[0].pages[0].originalimage)
-      setEventsImage(eventsImage)
-    };
-
-    fetchData();
-    }, []);
+    fetchPosts()
+  }, []);
 
     return (
       <div className="event-page">
@@ -49,8 +42,8 @@ const HomepageData = () => {
             <p>Loading...</p>
           ) : (
             <ul><li>
-              <img src={ eventsImage } alt="Trees" height="200" /><br/>
-              { eventsTitles[0] }
+              {/* <img src={ eventsImage } alt="Trees" height="200" /><br/>
+              { eventsTitles[0] } */}
               </li>
             </ul>
           )}
