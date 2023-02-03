@@ -14,8 +14,10 @@ const HomepageData = () => {
       try{
         const response = await api.get('/')
         console.log('response received in try catch homepage data')
-        setData(response.data)
-        console.log(data)
+        setData('respone data items ' + response.data.items)
+        console.log('process.env ' + process.env)
+        console.log('data ' + data)
+        console.log('response '+ response[0])
       }catch (err){
         console.log(`catch error in homepageData from axios useEffect ${err}`);
       }
