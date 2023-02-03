@@ -3,18 +3,19 @@ nav {
     height: 150px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
-.logo-container {
-    margin-right: auto;
+
+
+.logo-container {    
+    width: 200px;
+    height: 200px;
+    margin-right: 10rem;
     margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .logo {
@@ -27,6 +28,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width: 40%;
 }
 
 nav p {
