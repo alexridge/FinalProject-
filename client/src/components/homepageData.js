@@ -14,6 +14,8 @@ const HomepageData = () => {
   const [eventsLink, setEventsLink ] = useState(null);
   // const [randPage, setRandomPage ] = useState(null);
   const [index, setIndex] = useState(null);
+  const [eventsTitles, setEventsTitles] = useState(null);
+
  
  
 
@@ -27,7 +29,7 @@ const HomepageData = () => {
       let response = await fetch( url, {
         method: 'get',
           headers: {
-              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6ImEyNGIzZmQ4YzY4NWU1YzQ2ZDdhMDcwNDEwMDdlYzRhNmY0ZTA2MGFlMDg5NTEyOTkzMDdkZDM1NTg5MjJjOTRlZDQ3OGM1ODc2YTVkYzU4IiwiaWF0IjoxNjc1NDIwODM0LjAwNzY5NiwibmJmIjoxNjc1NDIwODM0LjAwNzcsImV4cCI6MTY3NTQzNTIzNC4wMDMwMywic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.O9NKst_L2caOx6XxHpu2taQWiOAuo88yv6lEVm_1oN2mMei9JprLJB7aaLD816jNZkX9pX3KaWxOxYGdBlREApZNQt6ml2HBl0idT9Oiw3YYNmDkWubx6LTsqIB5rDiltBQEix32JzrxUlk-8DQp9YTZCVu1Y6aQPQqXXTvTgJ9vteOcEUd61OrFs24pkCiFPKHhJ7HOUMCJ6UcIsr5njq9jtHKKir6KAzgfrLMKDZOx6ywbvdA-e_SHUYiiG1tdQzJHR00NR1O1Lu0yPcz116ZgoE4ziYb4HK7Y_mp0QBq8WOox5IiRfSwzaKEfey1QxC12d000Qe7UCNSOqn8vlByydSQ0jP2PfreGtg54FyP3eZB_KcIZAVbJ840-9W-iqqrKtIWrYneu91co_YLhi5IVoQOjq9DkjMWMGOgUR7nYTFhCAJO5C-sgGAvILxgkS6-vhC4G56fLbr-OftEhsyWTCfynvaDkl0M8LvQdB8dsHVkxfPEG6lmZflqV8HPfAXbsrMC2wgAfJsL4OxOl3p-sNil7SHSKgX00gm5IPqqkLi-x6PkwUkYaw5lIYmG-hN3SuVNmIGONyof3_Y8UNt2ENq1NP8RPwfYeGE8acCvjWhUJ6QJdG98aqfW1ZKrhrI0o_3mZfnBBSAips3bcNb6TnXdKKyvjvSnUfTz8-F8',
+              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjBmMzE5NjczMmM3Njg2NjAyZDEyNmZiMWU1ZGYwNTg0NDE4Zjc3Y2VjOTk1OWE2Nzg0YjZmZDYyY2E3ZTUyNzNkMTE0OThiYWVkODc2MjE2IiwiaWF0IjoxNjc1NDMzNjk4LjE5NDE5MSwibmJmIjoxNjc1NDMzNjk4LjE5NDE5NiwiZXhwIjoxNjc1NDQ4MDk4LjE4OTIyOSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.hxBidvkjapmTWP3j6avOpAC5npPFmCHBGoStxVS3cV2050FcNam7uepZfP0KW6-0VIgRdxbSmXgWesYeYEq6zcyeC3SS_IEBriacJgVvd0bTtUNjQwPvKIRY3jGSrQHC7KVlJ9N5snwXN8CUdfvMMJQkw-iY_TKNGGF6NVUCv6Z877TTihkZ01SPRPMASNmHBQLsNs2wA7DL4T0ZvLY3elNYDF6Ok7KGttt5j4rJYFkTlw6GvCxB-BiPuMAtXrz12psi7_O6JN2GTuO_Ugw6vnrSAP71mMmsZXbrn0huYCOR0sBmP3sruWve0sLyq7BOYijpLkEdi1jybe95hWW_oR4DhkuwYI5ff-oD3jSYKJnnpUebwrCy9VYrxHZ_XEeU1URWcFR0mgfphXwcdnkzBsJwYlfqMNPAxxWpIrDcbgnWhDc2j4McrN1RBjSqWDALvbEDoK0P3lspHO422xHWEBBe6KAtFGYxiV1AnrOmuDQdlGwDEI7IHAD_mz-T0UWU9BWJzGaDRC6hTESTqKRbzgBrv6Ir6xHnF3curJuN5a0VMZL8_Z4rUApeezFmSavLvrJKdmlKO1FImLDWsayAx9QbAfLnO9IPgbdsqCnRoQYfcGEgOT8bAC8EyjdzkGAhKqpltKg2AF8nquC817udSDA-P9ZBzveJJKDj5X1d57U',
               'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
           }
       });
@@ -44,10 +46,10 @@ const HomepageData = () => {
       // console.log(eventsSources);
       const eventsLink = eventsPages.map(page => (page[0].content_urls.desktop.page));
       // console.log(eventsLink);
-
-
+      const eventsTitles = eventsPages.map(page => (page[0].title));
       
-   
+      
+      setEventsTitles(eventsTitles);
       setData(data);
       setLoading(false);
       // setEventsTitles(eventsTitles);
@@ -67,34 +69,44 @@ const HomepageData = () => {
 
     
     return (
-      <div className="event-page">
-
-        <div className="event-box">
+      <html>
+        <head>
+          <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' type='text/css'/>
+        </head>
+        <body>
+          <div className="event-page">
+          <div className="event-box">
  
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <>
-            <div className="event-image">
-              <img src={eventsSources[-1 + index]} alt="img" width="40%" height="40%"/>
-            </div>
+            {loading ? (
+             <p>Loading...</p>
+            ) : (
+              <>
+              <div className='event-title'>
+                  { eventsTitles[index - 1].replace(/_/g, " ") }
+              </div>
               <div className="event-text">
-            <ul>
-              <li>
-             { eventsExtract[-1 + index] }
-              </li>
-            </ul>
-            <a href={eventsLink[-1 + index]}>Click to read more</a>
-            </div>
-            <button onClick={handleSetIndex}> 
-            Next
-             </button>
-            <p>current page {index} / {eventsExtract.length}</p>
-            </>
+
+                <div>
+                  { eventsExtract[-1 + index] } 
+                </div>
+
+                <div className="event-image">
+                  <img src={eventsSources[-1 + index]} alt='images'/>
+                </div>
+
+                <a href={eventsLink[-1 + index]}>Click to read more</a>
+              </div>
+
+              <button onClick={handleSetIndex}>Next</button>
+
+              <p>Current Page {index} / {eventsExtract.length}</p>
+              </>
           )}
          
         </div>
       </div>
+        </body>
+          </html>
     );
     
   };
