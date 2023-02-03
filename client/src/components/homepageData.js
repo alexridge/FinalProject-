@@ -141,7 +141,7 @@ const HomepageData = () => {
           <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' type='text/css'/>
         </head>
       <div className="event-page">
-        <p>now showing events from: {date1}</p>
+        <p>Now Showing Events from: {date1}</p>
         <div className="dropdown">
               <button onClick={dropDownFilter} className="dropbtn">Filter Pages</button>
               <div id="myDropdown" className="dropdown-content">
@@ -174,9 +174,7 @@ const HomepageData = () => {
             <a href={eventsLink[-1 + index]}>Click to read more</a>
             </div>
             </div>
-            <button onClick={handleSetIndex}> 
-            Next
-             </button>
+            <button onClick={handleSetIndex}> Next </button>
              <p>Current Page {index} / {eventsExtract.length}</p>
             </>
           )}
