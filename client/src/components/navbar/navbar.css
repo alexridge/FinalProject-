@@ -1,12 +1,13 @@
 nav {
     background-color: #00008b;
-    height: 150px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 0 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
+    position: fixed; top: 0; left: 0; right: 0;
 }
 
 
@@ -14,8 +15,9 @@ nav {
 .logo-container {    
     width: 200px;
     height: 200px;
-    margin-right: 10rem;
+    margin-right: 11.2rem;
     margin-left: auto;
+    align-items: center;
 }
 
 .logo {
@@ -26,7 +28,6 @@ nav {
 
 .buttons-container {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     width: 40%;
 }
@@ -58,4 +59,3 @@ button:hover {
     color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-

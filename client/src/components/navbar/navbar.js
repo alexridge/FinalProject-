@@ -8,7 +8,6 @@ const Navbar = () => {
              <img src={logo} alt="logo" className="logo" />
             </div>
            <div className="buttons-container"> 
-            <button data-cy="filter-button">Filter</button>
             <button data-cy="login-button">Login</button>
             <button data-cy="signup-button">Sign Up</button>
             </div>

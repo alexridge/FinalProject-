@@ -46,9 +46,7 @@ return(
   <Navbar/>
   <div className='window'>
      <div className='whole-window'>
- 
-    <p> Homepage in pages loading</p>
-    <div>
+     <div>
     <ErrorBoundary>
      <div className='content'>
        <HomepageData/>
