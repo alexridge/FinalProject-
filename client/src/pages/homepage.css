@@ -1,26 +1,27 @@
-.window {
-margin-top: 10px;
-width: 100%;
-text-align: center;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
 .whole-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100%;
-
-}
-
-.whole-window {
-    color: ;
-    width:80%;
-    border: 5px solid black;
-    background-color: white;
-
-}
-.whole-window , p {
-    color: black;
-
-}
+    height: 80%;
+    background-color: #f2f2f2;
+  }
+  
+  .whole-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  
