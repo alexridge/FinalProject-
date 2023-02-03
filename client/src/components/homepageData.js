@@ -161,16 +161,16 @@ const HomepageData = () => {
             <div className='event-title'>
                   { eventsTitles[index - 1].replace(/_/g, " ") }
             </div>
+            
+            <div>
+             { eventsExtract[-1 + index] }
+            </div>
+
             <div className="event-image">
               <img src={eventsSources[-1 + index]} alt="img"/>
             </div>
               <div className="event-text">
               
-            <ul>
-              <li>
-             { eventsExtract[-1 + index] }
-              </li>
-            </ul>
             <a href={eventsLink[-1 + index]}>Click to read more</a>
             </div>
             </div>
