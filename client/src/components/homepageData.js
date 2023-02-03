@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './homepageData.css';
-import api from './api/apiData'
+import api from './api/apiData';
 
 
 const HomepageData = () => {
@@ -18,6 +18,7 @@ const HomepageData = () => {
         console.log('process.env ' + process.env)
         console.log('data ' + data)
         console.log('response '+ response[0])
+        console.log(process.env.apiKeyEnv);
       }catch (err){
         console.log(`catch error in homepageData from axios useEffect ${err}`);
       }
