@@ -46,7 +46,7 @@ const HomepageData = () => {
       // console.log(eventsLink);
 
 
-      var index = 1;
+      
    
       setData(data);
       setLoading(false);
@@ -55,13 +55,15 @@ const HomepageData = () => {
       // setEventsImages(eventsImages);
       setEventsExtract(eventsExtract);
       setEventsLink(eventsLink);
-       setIndex(index);
+       setIndex(1);
     };
 
     fetchData();
     }, []);
 
-     
+     let handleSetIndex = () => {
+      setIndex(index + 1); 
+     }
 
     
     return (
@@ -84,7 +86,7 @@ const HomepageData = () => {
             </ul>
             <a href={eventsLink[-1 + index]}>Click to read more</a>
             </div>
-            <button> 
+            <button onClick={handleSetIndex}> 
             Next
              </button>
             <p>current page {index} / {eventsExtract.length}</p>
