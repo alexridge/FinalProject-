@@ -50,7 +50,9 @@ return(
     <p> Homepage in pages loading</p>
     <div>
     <ErrorBoundary>
-     <HomepageData/>
+     <div className='content'>
+       <HomepageData/>
+     </div>
     </ErrorBoundary>
     </div>
   </div>
