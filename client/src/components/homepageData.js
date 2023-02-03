@@ -28,6 +28,7 @@ const HomepageData = () => {
   const [index, setIndex] = useState(null);
   const [date1, dateSetter1] = useState(null);
   const [date2, dateSetter2] = useState(null);
+  const [eventsTitles, setEventsTitles] = useState(null);
 
  
 
@@ -79,10 +80,10 @@ const HomepageData = () => {
       const deathsLink = deathsPages.map(page => (page[0].content_urls.desktop.page));
       const holidaysLink = holidaysPages.map(page => (page[0].content_urls.desktop.page));
       // console.log(eventsLink);
-
-
+      const eventsTitles = eventsPages.map(page => (page[0].title));
       
-      setIndex(1);
+      setIndex(1);      
+      setEventsTitles(eventsTitles);
       setData(data);
       setLoading(false);
 
@@ -134,6 +135,11 @@ const HomepageData = () => {
     }
 
     return (
+    <html>
+      <body>
+        <head>
+          <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' type='text/css'/>
+        </head>
       <div className="event-page">
         <p>now showing events from: {date1}</p>
         <div className="dropdown">
@@ -152,8 +158,11 @@ const HomepageData = () => {
           ) : (
             <>
            <div className="event">
+            <div className='event-title'>
+                  { eventsTitles[index - 1].replace(/_/g, " ") }
+            </div>
             <div className="event-image">
-              <img src={eventsSources[-1 + index]} alt="img" width="40%" height="40%"/>
+              <img src={eventsSources[-1 + index]} alt="img"/>
             </div>
               <div className="event-text">
               
@@ -168,14 +177,17 @@ const HomepageData = () => {
             <button onClick={handleSetIndex}> 
             Next
              </button>
-            <p>current page {index} / {eventsExtract.length}</p>
+             <p>Current Page {index} / {eventsExtract.length}</p>
             </>
           )}
          
         </div>
       </div>
+      </body>
+     </html>
     );
     
   };
 
 export default HomepageData;
+

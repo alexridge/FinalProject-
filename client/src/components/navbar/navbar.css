@@ -54,7 +54,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: #e7cc57;
+    background-color: #00008b;
     color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
