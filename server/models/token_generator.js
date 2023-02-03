@@ -1,0 +1,9 @@
+const JWT = require('jsonwebtoken');
+const secret = process.env.JWT_secret;
+const options = {expiresIn: "10m"}
+
+class TokenGenerator {
+    static jsonwebtoken(user_id){
+        return JWT.sign({user_id: user_id, iat: Date.now(), secret, options})
+    }
+}

@@ -2,6 +2,10 @@ const express = require("express");
 const mongoose = require('mongoose');
 // const cors = require('cors')
 
+// Route set up 
+const usersRouter = require('./routes/users');
+const tokensRouter = require('./routes/tokens');
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -15,8 +19,7 @@ app.use(express.json())
 //     })
 //   );
 
-// Route set up 
-const usersRouter = require('./routes/users')
+
 
 //Connect to local MongoDB database
 mongoose.connect('mongodb://127.0.0.1:27017/TIH_test', {
@@ -41,5 +44,6 @@ app.get('/', (req, res) => {
   })
 
 app.use("/users", usersRouter)
+app.use("/tokens", tokensRouter)
 
 module.exports = app;
