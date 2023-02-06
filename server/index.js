@@ -1,6 +1,10 @@
+
+require("dotenv").config();
 const express = require("express");
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+
+
 // const cors = require('cors')
 
 // Route set up 
@@ -60,6 +64,7 @@ const tokenChecker =(req, res, next)=>{
     }
   })
 };
+
 
 //Routes  
 

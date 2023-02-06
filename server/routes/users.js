@@ -16,15 +16,19 @@ router.post("/", async(req,res) => {
     }
 } );
 
-router.post("/login", async(req, res) => {
-    try{
-        const user = User.findOne({_id: req.get('User_id')}, {password: req.get('password')});
-        const token = await TokenGenerator.jsonwebtoken(req.get('User_ID'))
-    }catch (error){
-        res.status(400)
-    }
+// router.post("/login", async(req, res) => {
+//     console.log("Inside login route")
+//     console.log(req.body.email, req.body.password)
+//     try{
+//         const user = await User.findOne({email: req.body.email});
+//         console.log("User console.log",user)
+//         const token = await TokenGenerator.jsonwebtoken(req.get('User_ID'));
+//         res.status(201).json({user:user, token: token})
+//     }catch {
+//         res.status(400)
+//     }
 
 
-})
+// })
 
 module.exports = router;
