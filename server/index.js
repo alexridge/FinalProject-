@@ -10,6 +10,7 @@ const jwt = require('jsonwebtoken');
 // Route set up 
 const usersRouter = require('./routes/users');
 const tokensRouter = require('./routes/tokens');
+const historyRouter = require('./routes/histories');
 
 const PORT = process.env.PORT || 3001;
 
@@ -70,6 +71,6 @@ const tokenChecker =(req, res, next)=>{
 
 app.use("/users", usersRouter);
 app.use("/tokens", tokensRouter);
-app.use("history", historyRouter);
+app.use("/history", historyRouter);
 
 module.exports = app;

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user')
-const TokenGenerator = require('../models/token_generator')
+
 
 
 // Post request to create a new instance of User 
