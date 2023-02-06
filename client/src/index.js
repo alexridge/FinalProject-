@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import SignUpPage from './pages/signUpPage/SignUpPage';
 import LoginPage from './pages/loginPage/LoginPage';
+import ProfilePage from './pages/profilePage/ProfilePage';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LoginPage />
   },
+  {
+    path: "/profile",
+    element: <ProfilePage />
+  }
 ]);
 
 

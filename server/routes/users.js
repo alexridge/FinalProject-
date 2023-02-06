@@ -16,19 +16,6 @@ router.post("/", async(req,res) => {
     }
 } );
 
-// router.post("/login", async(req, res) => {
-//     console.log("Inside login route")
-//     console.log(req.body.email, req.body.password)
-//     try{
-//         const user = await User.findOne({email: req.body.email});
-//         console.log("User console.log",user)
-//         const token = await TokenGenerator.jsonwebtoken(req.get('User_ID'));
-//         res.status(201).json({user:user, token: token})
-//     }catch {
-//         res.status(400)
-//     }
 
-
-// })
 
 module.exports = router;
