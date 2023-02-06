@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/navbar/navbar";
+ import Footer from "./components/footer/footer";
 // import logo from "./logo.svg";
 import React, { useState } from 'react';
 import {
@@ -11,9 +11,14 @@ import Homepage from './pages/homepage';
 
 const App = () => {
   return (
+    <div className="page-container"> 
+    <div className="content-wrap"> 
     <Routes>
        <Route path='/'  element={<Homepage navigate={ useNavigate() }/>}/>
     </Routes>
+    </div>
+    </div>
+    
   );
 }
 

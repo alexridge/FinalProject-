@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 // import PropTypes from 'prop-types';
 import './homepageData.css';
+import Footer from "./footer/footer";
 
 
 
@@ -45,7 +46,7 @@ const HomepageData = () => {
       let response = await fetch( url, {
         method: 'get',
           headers: {
-              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjBmMzE5NjczMmM3Njg2NjAyZDEyNmZiMWU1ZGYwNTg0NDE4Zjc3Y2VjOTk1OWE2Nzg0YjZmZDYyY2E3ZTUyNzNkMTE0OThiYWVkODc2MjE2IiwiaWF0IjoxNjc1NDMzNjk4LjE5NDE5MSwibmJmIjoxNjc1NDMzNjk4LjE5NDE5NiwiZXhwIjoxNjc1NDQ4MDk4LjE4OTIyOSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.hxBidvkjapmTWP3j6avOpAC5npPFmCHBGoStxVS3cV2050FcNam7uepZfP0KW6-0VIgRdxbSmXgWesYeYEq6zcyeC3SS_IEBriacJgVvd0bTtUNjQwPvKIRY3jGSrQHC7KVlJ9N5snwXN8CUdfvMMJQkw-iY_TKNGGF6NVUCv6Z877TTihkZ01SPRPMASNmHBQLsNs2wA7DL4T0ZvLY3elNYDF6Ok7KGttt5j4rJYFkTlw6GvCxB-BiPuMAtXrz12psi7_O6JN2GTuO_Ugw6vnrSAP71mMmsZXbrn0huYCOR0sBmP3sruWve0sLyq7BOYijpLkEdi1jybe95hWW_oR4DhkuwYI5ff-oD3jSYKJnnpUebwrCy9VYrxHZ_XEeU1URWcFR0mgfphXwcdnkzBsJwYlfqMNPAxxWpIrDcbgnWhDc2j4McrN1RBjSqWDALvbEDoK0P3lspHO422xHWEBBe6KAtFGYxiV1AnrOmuDQdlGwDEI7IHAD_mz-T0UWU9BWJzGaDRC6hTESTqKRbzgBrv6Ir6xHnF3curJuN5a0VMZL8_Z4rUApeezFmSavLvrJKdmlKO1FImLDWsayAx9QbAfLnO9IPgbdsqCnRoQYfcGEgOT8bAC8EyjdzkGAhKqpltKg2AF8nquC817udSDA-P9ZBzveJJKDj5X1d57U',
+              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6ImVjYzdmNzRhNzc5MTBjOTM1Y2NiNDlkZTFmOWM3YjI1ZmY1ZmI3MGNkNGIyNDUzODdlODMzYTNjNWQxZGMwMTU2ZWJmNGU2MzQzNmFjZjYwIiwiaWF0IjoxNjc1Njk0Mjc2LjY3OTA4OSwibmJmIjoxNjc1Njk0Mjc2LjY3OTA5MiwiZXhwIjoxNjc1NzA4Njc2LjY3NDIzMSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.rMBeGO5PtCehGYyH8_lDfy77yBMQ_hDKLGWkBaseWYyb3dta5veFuDyi6eE2HN3sfKEY6Q40Qe2MZCO6AiQK_lmS3uRiwec_UA6VCQb6IHVmS8ITVmHMfUq_EBosJTonuAVyZDIbTvXmcNJco_R3JpatfWaUO-U7KQnPp5NoHycHZmfCgIaGU-H_p4uGclqvqxPnsCpa3391LppkBNPSX9qiEHyBaZVvX9xy_HV7ccuBF4INoGhi0FQq6DVXqLgTfn8mArZAf1EzcfU3yiQ6HzwCdHKOnoVrOhh3gugwPDw0QjeYloi2KtXfdJYCcfBt7uMRCG0ROGvqQSm9yI5zEgOj8u6oXB8pbQt8mMD5YsMxLfLaj04QpXxXQ8vwsZPpdGWlkargMMEd2E6Ky-iFJ-THzXiy8Yg9t90d6XZYC_I7CDlXS2psbDBFudLJeOo-_fTs8gFuGh42dU5h8RWMvp7er9TXkep0LHBWXL9JreKxhEP1op8FbaoHyfHxJw8EOTLtAHRAGUwMJyD892DKMmWzSOsHkYz2FBfpHjb29d9-eucYeG8aadxokblSDMoQzpwaaSfPFd_SgfB1b-_m8Pmqk1xJB6CefMxncm2lu4W8rcfcZ2rS_laQONxVCXZ89Wf9hvl2QcAjoNlXV8CmaZPj6IFiPvZDPS8oNGdpEgM',
               'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
           }
       });
@@ -134,58 +135,50 @@ const HomepageData = () => {
       }
     }
 
-    return (
-    <html>
-      <body>
-        <head>
-          <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' type='text/css'/>
-        </head>
-      <div className="event-page">
-        <p>Now Showing Events Happened on {date1}</p>
-        <div className="dropdown">
+return (
+   
+    <div className="event-page">
+      <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' type='text/css' />
+      <p>Now Showing Events Happened on {date1}</p>
+      <div className="event-box">
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <div className="dropdown">
               <button onClick={dropDownFilter} className="dropbtn">Filter Pages</button>
               <div id="myDropdown" className="dropdown-content">
-                <button >Births</button>
-                <button >Deaths</button>
-                <button >Holidays</button>
-                <button >Events</button>
+                <button>Births</button>
+                <button>Deaths</button>
+                <button>Holidays</button>
+                <button>Events</button>
               </div>
             </div>
-        <div className="event-box">
- 
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <>
-           <div className="event">
-            <div className='event-title'>
-                  { eventsTitles[index - 1].replace(/_/g, " ") }
-            </div>
-            <div className="event-text">
-            <div>
-             { eventsExtract[-1 + index] }
-            </div>
-
-            <div className="event-image">
-              <img src={eventsSources[-1 + index]} alt="img"/>
-            </div>
-            </div>
+            <div className="event">
+              <div className='event-title'>
+                {eventsTitles[index - 1].replace(/_/g, " ")}
+              </div>
               <div className="event-text">
-              <a href={eventsLink[-1 + index]}>Click to read more</a>
+                <div>{eventsExtract[-1 + index]}</div>
+                <div className="event-image">
+                  <img src={eventsSources[-1 + index]} alt="img" />
+                </div>
+              </div>
+              <div className="event-text">
+                <a href={eventsLink[-1 + index]}>Click to read more</a>
+              </div>
             </div>
-            </div>
-            <button onClick={handleSetIndex}> Next </button>
-             <p>Current Page {index} / {eventsExtract.length}</p>
-            </>
-          )}
-         
-        </div>
+            <button onClick={handleSetIndex}>Next</button>
+            <p>Current Page {index} / {eventsExtract.length}</p>
+          </>
+        )}
       </div>
-      </body>
-     </html>
-    );
-    
+      <div></div>
+    </div>
+  );
   };
+  
+ 
 
 export default HomepageData;
 

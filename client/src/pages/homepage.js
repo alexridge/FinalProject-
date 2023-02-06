@@ -5,6 +5,9 @@ import './homepage.css';
 import Navbar from '../components/navbar/navbar';
 import homepageData from '../components/homepageData';
 import './homepage.css';
+import Footer from '../components/footer/footer';
+
+ 
 
 
 
@@ -42,20 +45,22 @@ const homepage= () => {
 window.addEventListener('load', homepage);
 
 return(
-  <div className='whole-app'>
-  <Navbar/>
-  <div className='window'>
-     <div className='whole-window'>
-     <div>
-    <ErrorBoundary>
-     <div className='content'>
-       <HomepageData/>
-     </div>
-    </ErrorBoundary>
-    </div>
-  </div>
-  </div>
-  </div>
+      <div className='whole-app'>
+        <Navbar/>
+        <div className='window'>
+          <div className='whole-window'>
+            <div>
+              <ErrorBoundary>
+              <div className='content'>
+                <HomepageData/>
+              </div>
+              </ErrorBoundary>
+            </div>
+          </div>
+        </div>
+        <Footer/>
+      </div>
+  
 )
 };
 

@@ -1,0 +1,29 @@
+body {
+    margin-bottom: 30px;
+  }
+
+.main-footer {
+    background-color: #00008b;
+    color: #fff;
+    padding-top: 3em;
+    padding-bottom: 60px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+
+.col {
+    width: 30%;
+    float: left;
+}
+
+.main-footer p {
+    margin: 0.5em;
+} 
