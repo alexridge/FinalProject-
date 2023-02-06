@@ -30,7 +30,7 @@ class ErrorBoundary extends React.Component {
       return <h1>error on homepageData.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 
@@ -46,7 +46,7 @@ return(
   <Navbar/>
   <div className='window'>
      <div className='whole-window'>
- 
+
     <p> Homepage in pages loading</p>
     <div>
     <ErrorBoundary>
