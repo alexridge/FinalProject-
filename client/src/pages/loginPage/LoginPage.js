@@ -18,14 +18,21 @@ const LoginPage = () => {
     const handleSubmit = async(e)=> {
         e.preventDefault();
 
-        const response = await fetch('/tokens', {
+        fetch('/tokens', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            "body": {email: email, password: password}
+            "body": JSON.stringify({email, password})
         })
-        return response.json()
+        .then(response => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+        });
+        
     }
 
     return (
