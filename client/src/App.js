@@ -2,7 +2,7 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 
 
-function App() {
+const App = () => {
   return (
     <main>      
       <Navbar />
