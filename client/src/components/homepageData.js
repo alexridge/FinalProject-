@@ -25,6 +25,7 @@ const HomepageData = () => {
   const [index, setIndex] = useState(null);
   const [date1, dateSetter1] = useState(null);
   const [date2, dateSetter2] = useState(null);
+  const [eventsTitles, setEventsTitles] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -109,8 +110,10 @@ const HomepageData = () => {
         (page) => page[0].content_urls.desktop.page
       );
       // console.log(eventsLink);
+      const eventsTitles = eventsPages.map(page => (page[0].title));
 
       setIndex(1);
+      setEventsTitles(eventsTitles);
       setData(data);
       setLoading(false);
 

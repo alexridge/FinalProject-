@@ -1,0 +1,42 @@
+import { useEffect, useState } from 'react';
+import Navbar from '../../components/navbar/Navbar'
+import './ProfilePage.css';
+
+const ProfilePage = () => {
+
+    const [historyData, setHistoryData] = useState(null)
+
+    useEffect(() => {
+        fetch('/history', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+
+        })
+            .then(response => response.json())
+            .then(data => setHistoryData(data))
+    }, [])
+
+   
+
+    return (
+        <div id="main-container">
+            <Navbar />
+            <h2>Welcome To Your Saved History</h2>
+            <div>
+                {historyData != null && historyData.map((event) => {
+                    return (
+                        <div className='historical-event' key={event._id}>
+                            <h3>{event.title}</h3>
+                            <p className='event-text'>{event.text}</p>
+                            <img src={event.image} alt="Historical" />
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
+    )
+}
+
+export default ProfilePage;

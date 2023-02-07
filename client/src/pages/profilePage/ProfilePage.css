@@ -1,0 +1,28 @@
+h2{
+    margin-bottom: 4rem;
+}
+
+.event-text {
+    font-size: smaller;
+}
+
+p {
+    color: black;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    
+}
+
+h3 {
+    text-align: center;
+}
+
+img {
+    border: 1px solid black;
+}
+
+.historical-event {
+
+    border: grey 1px solid;
+    padding: 2rem;
+}
