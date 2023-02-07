@@ -1,4 +1,4 @@
-import './navbar.css'
+import './Navbar.css'
 import logo from './logo-dark-removebg-preview.png'
 
 const Navbar = () => {
