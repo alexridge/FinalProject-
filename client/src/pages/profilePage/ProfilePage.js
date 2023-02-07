@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Navbar from '../../components/navbar/Navbar'
+import Navbar from '../../components/navbar/navbar'
 import './ProfilePage.css';
 
 const ProfilePage = () => {
@@ -18,7 +18,7 @@ const ProfilePage = () => {
             .then(data => setHistoryData(data))
     }, [])
 
-   
+
 
     return (
         <div id="main-container">

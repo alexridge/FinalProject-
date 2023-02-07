@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/navbar/navbar';
 import './LoginPage.css'
 
 const LoginPage = () => {
@@ -32,7 +32,7 @@ const LoginPage = () => {
         .catch((error) => {
             console.log('Error:', error);
         });
-        
+
     }
 
     return (
