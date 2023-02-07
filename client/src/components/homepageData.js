@@ -158,14 +158,44 @@ const HomepageData = () => {
     }
   };
 
+  const [eventsToggle, setEventsToggle] = useState(true)
   const [birthsToggle, setBirthsToggle] = useState(false)
+  const [deathsToggle, setDeathsToggle] = useState(false)
+  const [holidaysToggle, setHolidaysToggle] = useState(false)
+
+  const handleEventsFilter = (e) => {
+    e.preventDefault()
+    if (eventsToggle === true) {
+      console.log('events toggle off');
+      setEventsToggle(false)
+    } else if (eventsToggle === false)
+    console.log('events toggle on');
+      setEventsToggle(true)
+  };
 
   const handleBirthsFilter = (e) => {
+    e.preventDefault()
     if (birthsToggle === false) {
       setBirthsToggle(true)
     } else if (birthsToggle === true)
       setBirthsToggle(false)
   };
+
+  const handleDeathsFilter = (e) => {
+    if (deathsToggle === false) {
+      setDeathsToggle(true)
+    } else if (deathsToggle === true)
+      setDeathsToggle(false)
+  };
+
+  const handleHolidaysFilter = (e) => {
+    if (holidaysToggle === false) {
+      setHolidaysToggle(true)
+    } else if (holidaysToggle === true)
+      setHolidaysToggle(false)
+  };
+
+
 
   return (
     <div className="event-page">
@@ -175,12 +205,10 @@ const HomepageData = () => {
           Filter Pages
         </button>
         <div id="myDropdown" className="dropdown-content">
-          <button onClick={handleBirthsFilter} className="birthsFilterBtn">
-            Births
-          </button>
-          <button>Deaths</button>
-          <button>Holidays</button>
-          <button>Events</button>
+          <button onClick={handleBirthsFilter}>Births</button>
+          <button onClick={handleDeathsFilter}>Deaths</button>
+          <button onClick={handleHolidaysFilter}>Holidays</button>
+          <button onClick={handleEventsFilter}>Events</button>
         </div>
       </div>
       <div className="event-box">
@@ -188,6 +216,7 @@ const HomepageData = () => {
           <p>Loading...</p>
         ) : (
           <>
+          {eventsToggle && (
             <div className="event">
               <div className="event-image">
                 <img
@@ -203,7 +232,7 @@ const HomepageData = () => {
                 </ul>
                 <a href={eventsLink[-1 + index]}>Click to read more</a>
               </div>
-            </div>
+            </div>)}
 
               {birthsToggle && (
               <div className='births' >
@@ -220,6 +249,42 @@ const HomepageData = () => {
                     <li>{birthsExtract[-1 + index]}</li>
                   </ul>
                   <a href={birthsLink[-1 + index]}>Click to read more</a>
+                </div>
+              </div>)}
+
+              {deathsToggle && (
+              <div className='deaths' >
+                <div className="death-image">
+                  <img
+                    src={deathsSources[-1 + index]}
+                    alt="img"
+                    width="40%"
+                    height="40%"
+                  />
+                </div>
+                <div className="death-text">
+                  <ul>
+                    <li>{deathsExtract[-1 + index]}</li>
+                  </ul>
+                  <a href={deathsLink[-1 + index]}>Click to read more</a>
+                </div>
+              </div>)}
+
+              {holidaysToggle && (
+              <div className='holidays' >
+                <div className="holiday-image">
+                  <img
+                    src={holidaysSources[-1 + index]}
+                    alt="img"
+                    width="40%"
+                    height="40%"
+                  />
+                </div>
+                <div className="holiday-text">
+                  <ul>
+                    <li>{holidaysExtract[-1 + index]}</li>
+                  </ul>
+                  <a href={holidaysLink[-1 + index]}>Click to read more</a>
                 </div>
               </div>)}
 
