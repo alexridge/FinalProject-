@@ -14,9 +14,10 @@ router.post('/', async (req, res) => {
     console.log("Post request is running")
     const { text, title, image } = req.body    
     try {
-        const history = await new History(text, title, image);
+        const history = await new History({text, title, image});
+        console.log(history)
         await history.save()
-        res.status(201).json(text, title, image )
+        res.status(201).json()
     } catch {
         res.status(400).json()
     }

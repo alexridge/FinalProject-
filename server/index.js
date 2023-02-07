@@ -2,7 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
+const JWT = require('jsonwebtoken');
 
 
 // const cors = require('cors')
@@ -45,20 +45,19 @@ app.listen(PORT, () => {
 });
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+
 // Middleware to check validity of tokens
-const tokenChecker =(req, res, next)=>{
+const tokenChecker = (req, res, next)=>{
     let token;
     const authHeader = req.get("Authorization");
-
+    console.log(req)
     if (authHeader){
       token = authHeader.slice(7);
     }
-  jwt.verify(token, process.env.JWT_SECRET,(err, payload)=> {
+  JWT.verify(token, process.env.JWT_SECRET,(err, payload)=> {
     if (err){
       console.log(err)
+      res.status(401).json({ message: "auth error" });
     }else {
       req.user_id = payload.user_id;
       next();
@@ -71,6 +70,6 @@ const tokenChecker =(req, res, next)=>{
 
 app.use("/users", usersRouter);
 app.use("/tokens", tokensRouter);
-app.use("/history", historyRouter);
+app.use("/history", tokenChecker, historyRouter);
 
 module.exports = app;
