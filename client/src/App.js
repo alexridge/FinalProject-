@@ -1,25 +1,13 @@
 import "./App.css";
- import Footer from "./components/footer/footer";
-// import logo from "./logo.svg";
-import React, { useState } from 'react';
-import {
-  useNavigate,
-  Routes,
-  Route,
-} from "react-router-dom";
-import Homepage from './pages/homepage';
+import Navbar from "./components/navbar/Navbar";
+
 
 const App = () => {
   return (
-    <div className="page-container"> 
-    <div className="content-wrap"> 
-    <Routes>
-       <Route path='/'  element={<Homepage navigate={ useNavigate() }/>}/>
-    </Routes>
-    </div>
-    </div>
-    
-  );
+    <main>      
+      <Navbar />
+    </main>
+  )
 }
 
 export default App;

@@ -1,6 +1,0 @@
-when we load page: 
-
-1. image to load at top of page 
-2. event details under the image 
-3. when fetch request sent, correct response
-4. when page is reloaded a different event is displayed

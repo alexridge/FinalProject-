@@ -17,16 +17,16 @@
     margin-bottom: 10px;
     text-align: center;
     color: #00008b;
-}
+    }
 
-.event-box {
+  .event-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80%;
-}
+    }
 
-.event-image img {
+  .event-image img {
     margin-bottom: 10px;
     padding-top: 100px;
     width: 1000px;

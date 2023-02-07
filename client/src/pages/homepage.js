@@ -33,16 +33,16 @@ class ErrorBoundary extends React.Component {
       return <h1>error on homepageData.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 
 
-const homepage= () => {
+const Homepage= () => {
   // console.log('it has loaded');
   // console.log(HomepageData)
 
-window.addEventListener('load', homepage);
+window.addEventListener('load', Homepage);
 
 return(
       <div className='whole-app'>
@@ -64,4 +64,4 @@ return(
 )
 };
 
-export default homepage;
+export default Homepage;
