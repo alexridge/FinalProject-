@@ -4,7 +4,7 @@ import logo from '../navbar/logo-dark-removebg-preview.png'
  
 const Footer = () => {
   return (
-   <body>
+   
     <div className="main-footer">
         <div className='container'>
           <div className='row'>
@@ -53,7 +53,7 @@ const Footer = () => {
              </div>
         </div>
     </div>
-   </body>
+  
   )
 };
 
