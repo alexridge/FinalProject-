@@ -2,18 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
+import Homepage from './pages/Homepage';
 import SignUpPage from './pages/signUpPage/SignUpPage';
 import LoginPage from './pages/loginPage/LoginPage';
 import ProfilePage from './pages/profilePage/ProfilePage';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Homepage />,
   },
   {
     path: "/signup",
