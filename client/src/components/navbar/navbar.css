@@ -1,5 +1,5 @@
 nav {
-    background-color: #00008b;
+    background: linear-gradient(15deg,#04ada8, #00008b);
     height: 200px;
     display: flex;
     align-items: center;
@@ -8,6 +8,8 @@ nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     position: fixed; top: 0; left: 0; right: 0;
+    top: 0;
+    z-index: 1;
 }
 
 
@@ -40,7 +42,7 @@ nav p {
 }
 
 button {
-    background-color: rgb(255, 255, 255);
+    background: linear-gradient(white, #cdcdcd);
     border: none;
     font-family: 'Montserrat', sans-serif;
     margin: 20px;

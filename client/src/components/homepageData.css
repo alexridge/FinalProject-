@@ -34,6 +34,7 @@
     max-width: 1000px;
     max-height: 1000px;
     object-fit: contain;
+    
 }
 
 .event-text {
@@ -57,7 +58,7 @@ body {
 }
 
 .dropbtn {
-    background-color: #00008b;
+    background: linear-gradient(15deg,#04ada8, #00008b);
     border: none;
     font-family: 'Montserrat', sans-serif;
     margin: 20px;
