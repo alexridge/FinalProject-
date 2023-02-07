@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HomepageData from '../components/homepageData'
 import './homepage.css';
-import Navbar from '../components/navbar/navbar';
+import Navbar from '../components/navbar/Navbar';
 import homepageData from '../components/homepageData';
 import './homepage.css';
 
@@ -35,11 +35,11 @@ class ErrorBoundary extends React.Component {
 }
 
 
-const homepage= () => {
+const Homepage= () => {
   // console.log('it has loaded');
   // console.log(HomepageData)
 
-window.addEventListener('load', homepage);
+window.addEventListener('load', Homepage);
 
 return(
   <div className='whole-app'>
@@ -61,4 +61,4 @@ return(
 )
 };
 
-export default homepage;
+export default Homepage;
