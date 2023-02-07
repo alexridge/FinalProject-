@@ -45,7 +45,7 @@ const HomepageData = () => {
       let response = await fetch( url, {
         method: 'get',
           headers: {
-              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6ImYxYTE0MjA2NmQxY2NiNDFhMzAwOTg1YTNmNmI5ZmMzMWI0OWIyZWVhMjY1NTdjZWEyYjNlYWEzYmI4NDc1NGQwYTc0MmE4N2EwYmE4NDExIiwiaWF0IjoxNjc1Njc4Njc5LjIzMzE4OCwibmJmIjoxNjc1Njc4Njc5LjIzMzE5MSwiZXhwIjoxNjc1NjkzMDc5LjIyODY1Miwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.KM0Qfx9RspbHBE-zCOqsVW8fX2Ay3Cwkan-vDRGWjPen5cS4b6jOKWwZE3aJiEYdsHU5qMtLIRmXr1ri0xrJ4v37WyS7F2-bFS_nQ5MonPVT4DqGTLyeZ0SKQkeFIbUCCogfXxPIfkyQww3mNpRELv5Ghn1Ul-bsWQkQDXgMCG0fxZ7WOrcWgZb8lRBhHcUgEYwHrIGX0GKp5sRAmZJv1Gh1MJDQsGPcOpW3ZmxA0XvXLiEUafbBzVjX9IcnQCEfEH9NecXLC_u7qYb06JE3LjqnQe6MGGnzxVuD-uMzRNUg4ujrTZGsCsee43oVQPifroadJtM5EK3dLiNXwxp8arHuapeq4iPi9A8za6ewzpKXEXax5z5d-1Q5xJgF7F32ZeIsSCB7um_kc05GdpWry9AiH1RibxuVBWp_V843JFPCoRy1zEpTkPDfaqAbhWdgRyAXHhPGIXYu0zMbSNFRpL1zHLXACZRW9qEbpoX8z9l9ILbLcnJao9vJhhyNaL3c9FXg2OzlmI4JNqMb-FAdT-vOZqBBmXA_ChlLkTPAkyvzIPxBjNR1XYrBgQr5PC8S-lk0j-GaYnjhgZWVuoqHax6BkdJtr-U45bQGWjCyvnAK6jiT6EqsiydPr3Mwse9ySr7PEZgAZyFD7nVKPatSbbukmM2PZiGxKQsgziQ-3OA',
+              'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjNjYmI0OGY1YjYwMThmODA2NDZlZDE0ZjBjNTMxMWM1ZTBlZjY5MGM0MzIwOTAxODIyMWMzZDgxOWVlZmZlZTY0ZTQzNDhkMWIwNTE5ODM2IiwiaWF0IjoxNjc1NzYzOTg2LjA1MDY2OSwibmJmIjoxNjc1NzYzOTg2LjA1MDY3MiwiZXhwIjoxNjc1Nzc4Mzg2LjA0NjMxOCwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.MaT3cu67Jh9RujKRgkENvupcRgEcbXb_ulCZ9kPaxKn1pgn1qZXXBS7Jh7iU7a8qnePTd0j8Xb_rqG4oe9w_PD5tozdtaAwzcIpYo345Um90Q2nJo8S3yRYLd_mLGsG77OlzJCpg7BCP0cBgTGMWbEdKoBp787Rah-R7f5wRMXyHImqLGM1Jz8ke22QlQCkWa6yyuXt8V5KOvmQWwGVnT2OmRl2yPsskh9oJCsOiG6vWcIfFnP_LIrky11JGgBUM_ZY6yppY5Kr9hVQjls9wWv3o0oAKLzee0-HpSoOZdwTP_ddl4xd-qG7bjb-EjPcrhdWMelzNvEOQj5JXQL3DKWojWXHj17pTshMj6MeljSlxXZJrMdJbGmUXneDzuDOR3_8u0jGaKATpZfNSV3_Jdcl-dZUDRLL7w74Mx5XWIHEj_oI-53qCt5eb8HjGwr5yz36VGs-InlXZuPhUjA41AzZkAqxwY18priIiTX0CDcSJ61PKQTRVt7yluA4wTIn7BG_UIAEeUa692WUCnX_UhuqPRuRvuMl1Vx2HlyGFDYQMijHOrl3X_IFybpuyUp_EKRVy9N_31XVGP6G24ZvN7ZjpnFfpLhEdS4d8nxIJL7gvHjWYPm9uYSgbr6IUjr8DLGDoaAEKxcCmJZ3YSnVA7NHnzx2b-zh8J4i7_xJF2N8',
               'Api-User-Agent': 'This Day in History (alexridge2309@gmail.com)'
           }
       });
@@ -141,20 +141,20 @@ const HomepageData = () => {
           <link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet' type='text/css'/>
         </head>
       <div className="event-page">
-        <p>now showing events from: {date1}</p>
+        <p id="date-shower">now showing events from: {date1}</p>
         <div className="dropdown">
-              <button onClick={dropDownFilter} className="dropbtn">Filter Pages</button>
+              <button onClick={dropDownFilter} className="dropbtn" data-cy='dropbtn'>Filter Pages</button>
               <div id="myDropdown" className="dropdown-content">
-                <button >Births</button>
-                <button >Deaths</button>
-                <button >Holidays</button>
-                <button >Events</button>
+                <button data-cy='dropbtn-b'>Births</button>
+                <button data-cy='dropbtn-d'>Deaths </button>
+                <button data-cy='dropbtn-h'>Holidays</button>
+                <button data-cy='dropbtn-e'>Events</button>
               </div>
             </div>
         <div className="event-box">
  
           {loading ? (
-            <p>Loading...</p>
+            <p data-cy="loading">Loading...</p>
           ) : (
             <>
            <div className="event">
@@ -171,7 +171,7 @@ const HomepageData = () => {
             </div>
               <div className="event-text">
               
-            <a href={eventsLink[-1 + index]}>Click to read more</a>
+            <a href={eventsLink[-1 + index]} data-cy="page-link">Click to read more</a>
             </div>
             </div>
             <button onClick={handleSetIndex}> 
