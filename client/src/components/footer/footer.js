@@ -4,8 +4,8 @@ import logo from '../navbar/logo-dark-removebg-preview.png'
  
 const Footer = () => {
   return (
-   
-    <div className="main-footer">
+     
+     <div className="main-footer">
         <div className='container'>
           <div className='row'>
               {/* Colums 1 */}
@@ -53,8 +53,8 @@ const Footer = () => {
              </div>
         </div>
     </div>
-  
-  )
+    
+   )
 };
 
 export default Footer;

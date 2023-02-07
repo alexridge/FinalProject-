@@ -37,6 +37,15 @@
     
 }
 
+@media (max-width: 1000px){
+    .event-image img {
+        width: 80%;
+        height: auto;
+        max-width: 800px;
+        max-height: 800px;
+    }
+}
+
 .event-text {
     font-family: 'Montserrat', sans-serif;
     margin-top: 100px;
