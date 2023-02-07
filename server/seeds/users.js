@@ -11,3 +11,13 @@ mongoose.connect('mongodb://127.0.0.1:27017/TIH_test', {
     console.log("Error occured");
     console.log(err)
 })
+
+const User = require('../models/user');
+
+const test = new User({email: "test@test.com", password: "test_1"})
+
+test.save().then(user => {
+    console.log(user)
+}).catch(e => {
+    console.log(e)
+})
