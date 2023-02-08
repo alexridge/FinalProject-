@@ -4,8 +4,11 @@ body {
     min-height: 100vh;
 }
 
-.main-container {
+.container {
     flex: 1; /* This makes sure that the main container takes up all available space */
+    text-align: left;
+    max-width: 80%; 
+    margin: 0 auto; 
 }
 
 .main-footer {
@@ -18,15 +21,20 @@ body {
     display: flex;
     justify-content: space-between;
     min-height: 250px;
-    position: relative; /* add relative positioning to the footer */
-    bottom: 0; /* set bottom value to 0 */
-    left: 0; /* set left value to 0 */
-    right: 0; /* set right value to 0 */
-    position: fixed; 
-    bottom: 0px; 
+    position: fixed;
+    bottom: 0px;  
+    left: 0;
+    right: 0;
     height:150px;
-}
+    overflow: hidden;
+    transition: bottom 0.3s ease-in-out;  
+    }
 
+
+
+.show-footer {
+    bottom: 0px !important;
+    }
 
 .col {
     width: 25%;
