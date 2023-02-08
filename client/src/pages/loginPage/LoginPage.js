@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Navbar from '../../components/navbar/navbar';
 import './LoginPage.css'
+import Footer from '../../components/footer/footer';
 
 const LoginPage = () => {
 
@@ -36,7 +37,7 @@ const LoginPage = () => {
     }
 
     return (
-        <div id="main-container">
+        <div id="login-main-container">
             <Navbar />
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
@@ -44,8 +45,11 @@ const LoginPage = () => {
                 <input type={email} value={email} onChange={handleEmailChange}></input>
                 <label>Password</label>
                 <input type={password} value={password} onChange={handlePasswordChange}></input>
+                <div className='button'>
                 <input type="submit" value="Submit"/>
+                </div>
             </form>
+            <Footer />
         </div>
     )
 };

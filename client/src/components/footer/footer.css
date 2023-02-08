@@ -1,20 +1,12 @@
 body {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
-    }
+    min-height: 100vh;
+}
 
-.container {
-    height: 100%;
-    max-width: 80%;
-    margin: 0 auto;
-    }
-
-.main-container:after {
-    content: "";
-    clear: both;
-    display: table;
-    }
+.main-container {
+    flex: 1; /* This makes sure that the main container takes up all available space */
+}
 
 .main-footer {
     background: linear-gradient(15deg,#00008b, #04ada8);
@@ -25,9 +17,13 @@ body {
     text-align:left;
     display: flex;
     justify-content: space-between;
-    /* min-height: calc(100vh - 211px - 58px); */
-     min-height: 250px; 
+    min-height: 250px;
+    position: relative; /* add relative positioning to the footer */
+    bottom: 0; /* set bottom value to 0 */
+    left: 0; /* set left value to 0 */
+    right: 0; /* set right value to 0 */
 }
+
 
 .col {
     width: 25%;
