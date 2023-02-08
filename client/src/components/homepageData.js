@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 // import PropTypes from 'prop-types';
 import './homepageData.css';
 import Footer from "./footer/footer";
+import SaveHistory from "./saveHistoryButton/SaveHistory";
 
 
 
@@ -252,6 +253,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={eventsLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory image={eventsSources[-1 + index]} text={eventsExtract[-1 + index]} title={eventsTitles[-1 + index]}/>
               </div>
             )}
 
@@ -271,6 +273,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={birthsLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
               </div>
             )}
 
@@ -290,6 +293,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={deathsLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory text={deathsExtract[-1 + index]} image={deathsLink[-1 + index]} title={"event"} />
               </div>
             )}
 
@@ -309,6 +313,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={holidaysLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory text={holidaysExtract[-1 + index]} image={holidaysLink[-1 + index]} title={"event"}/>
               </div>
             )}
 

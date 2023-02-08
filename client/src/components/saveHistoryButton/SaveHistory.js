@@ -1,19 +1,25 @@
 
 
-const SaveHistory = ({ image, text, title }) => {
-
+const SaveHistory = (props) => {
+    
+    let { sentImage, sentText, sentTitle } = props
     const user_id = window.localStorage.getItem("user_id");
     const token = window.localStorage.getItem("token");
 
     const handleClick = async () => {
-
+        console.log("Hi Naomi", sentImage, sentText, sentTitle)
         let response = await fetch('/history', {
             method: 'POST',
             headers: {
-                Accept: "application/json",
+                Accept: 'application/json',
                 Authorization: `Bearer ${token}`,
+                user_id: user_id,
+                text: sentText,
+                title: sentTitle,
+                image: sentImage,
+
             },        
-        body: JSON.stringify({user_id, text, title, image})          
+            // body: JSON.stringify({user_id, sentText, sentTitle, sentImage}),
 
     });
 
