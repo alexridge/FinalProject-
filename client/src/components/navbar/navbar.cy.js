@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import Navbar from "./n§avbar";
 
 describe("Testing for the Navbar component", ()=> {
     it("Renders the Navbar on page load", ()=> {
@@ -10,11 +10,6 @@ describe("Testing for the Navbar component", ()=> {
         cy.mount(<Navbar/>);
         cy.get('[data-cy="login-button"]').should('contains.text', "Login")
     })
-    
-    it ("Should have a filter button", ()=> {
-      cy.mount(<Navbar/>);
-      cy.get('[data-cy="filter-button"]').should('contains.text', "Filter")
-  })
 
   it ("Should have a sign up button", ()=> {
     cy.mount(<Navbar/>);

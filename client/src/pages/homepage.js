@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HomepageData from '../components/homepageData'
 import './homepage.css';
-import Navbar from '../components/navbar/Navbar';
+import Navbar from '../components/navbar/navbar';
 import homepageData from '../components/homepageData';
 import './homepage.css';
+import Footer from '../components/footer/footer';
+
+ 
 
 
 
@@ -30,7 +33,7 @@ class ErrorBoundary extends React.Component {
       return <h1>error on homepageData.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 
@@ -42,22 +45,22 @@ const Homepage= () => {
 window.addEventListener('load', Homepage);
 
 return(
-  <div className='whole-app'>
-  <Navbar/>
-  <div className='window'>
-     <div className='whole-window'>
- 
-    <p> Homepage in pages loading</p>
-    <div>
-    <ErrorBoundary>
-     <div className='content'>
-       <HomepageData/>
-     </div>
-    </ErrorBoundary>
-    </div>
-  </div>
-  </div>
-  </div>
+      <div className='whole-app'>
+        <Navbar/>
+        <div className='window'>
+          <div className='whole-window'>
+            <div>
+              <ErrorBoundary>
+              <div className='content'>
+                <HomepageData/>
+              </div>
+              </ErrorBoundary>
+            </div>
+          </div>
+        </div>
+        <Footer/>
+      </div>
+  
 )
 };
 

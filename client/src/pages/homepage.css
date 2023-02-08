@@ -10,8 +10,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80%;
-    background-color: #f2f2f2;
+    height: 130%;
+    background-color: white;
+    margin-top: 300px;
   }
   
   .whole-window {
@@ -22,6 +23,7 @@
     height: 120%;
     background-color: #fff;
     margin-top: 300px;
+
   }
 
   .content {
@@ -30,7 +32,7 @@
     align-items: center;
     width: 100%;
     height: 80%;
-    background-color: #f2f2f2;
+    background-color: #fff;
 
   }
   
