@@ -3,9 +3,9 @@ const router = express.Router();
 const History = require('../models/history');
 
 
-router.get('/', async (req, res) => {
-    // res.send("Welcome to the GET request for saved history");
-    let post = await History.find({title: "This is my title"});
+router.get('/', async (req, res) => {    
+    const user = req.headers.user_id    
+    let post = await History.find({user_id: user});
     console.log(post)
     res.send(post);
 });
