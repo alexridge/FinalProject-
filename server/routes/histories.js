@@ -12,9 +12,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     console.log("Post request is running")
-    const { text, title, image } = req.body    
+    const { text, title, image } = req.body;
+    const user_id = req.headers.user_id;
+
+    // console.log("Headers", user_id)
     try {
-        const history = await new History({text, title, image});
+        const history = await new History({user_id, text, title, image});
         console.log(history)
         await history.save()
         res.status(201).json()

@@ -73,6 +73,6 @@ const tokenChecker = (req, res, next)=>{
 
 app.use("/users", usersRouter);
 app.use("/tokens", tokensRouter);
-app.use("/history", tokenChecker, historyRouter);
+app.use("/history", historyRouter);
 
 module.exports = app;

@@ -8,9 +8,7 @@ const ProfilePage = () => {
     const [token, setToken] = useState(window.localStorage.getItem("token"));
     const user_id = window.localStorage.getItem("user_id");
 
-    console.log("token",token);
-    console.log("user", user_id)
-
+    
     useEffect(() => {
         fetch('/history', {
             method: 'GET',
@@ -25,8 +23,7 @@ const ProfilePage = () => {
             .then(data => setHistoryData(data))
     }, [token, user_id])
 
-    console.log(historyData)
-   
+       
 
     return (
         <div id="main-container">
