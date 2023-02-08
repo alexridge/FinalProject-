@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 const express = require("express");
 const mongoose = require('mongoose');
@@ -16,15 +15,6 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.json())
-
-//use cors to allow cross origin resource sharing
-// app.use(
-//     cors({
-//       origin: 'http://localhost:3000',
-//       credentials: true,
-//     })
-//   );
-
 
 
 //Connect to local MongoDB database
@@ -61,8 +51,7 @@ const tokenChecker = (req, res, next)=>{
       console.log(err)
       res.status(401).json({ message: "auth error" });
     }else {
-      req.user_id = payload.user_id;
-      console.log("Token accepted")
+      req.user_id = payload.user_id;      
       next();
     }
   })

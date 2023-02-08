@@ -49,9 +49,9 @@ const LoginPage = () => {
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <label>Email</label>
-                <input type={email} value={email} onChange={handleEmailChange}></input>
+                <input type="email" value={email} onChange={handleEmailChange}></input>
                 <label>Password</label>
-                <input type={password} value={password} onChange={handlePasswordChange}></input>
+                <input type="password" value={password} onChange={handlePasswordChange}></input>
                 <input type="submit" value="Submit"/>
             </form>
         </div>

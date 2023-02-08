@@ -12,8 +12,7 @@ router.post("/", (req,res)=> {
         }else if (user.password !== password){
             return res.status(401).json({message: "Passwords do not match"})
         }else{            
-            const token = await TokenGenerator.jsonwebtoken(user.id);
-            console.log("token generated", token)
+            const token = await TokenGenerator.jsonwebtoken(user.id);           
             res.status(201).json({user_id: user.id, token: token, message: "OK"})
         }
     })
