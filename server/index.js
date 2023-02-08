@@ -48,18 +48,21 @@ app.listen(PORT, () => {
 
 // Middleware to check validity of tokens
 const tokenChecker = (req, res, next)=>{
-    let token;
+    
     const authHeader = req.get("Authorization");
     console.log(req)
     if (authHeader){
       token = authHeader.slice(7);
     }
+    
+
   JWT.verify(token, process.env.JWT_SECRET,(err, payload)=> {
     if (err){
       console.log(err)
       res.status(401).json({ message: "auth error" });
     }else {
       req.user_id = payload.user_id;
+      console.log("Token accepted")
       next();
     }
   })
@@ -70,6 +73,6 @@ const tokenChecker = (req, res, next)=>{
 
 app.use("/users", usersRouter);
 app.use("/tokens", tokensRouter);
-app.use("/history", historyRouter);
+app.use("/history", tokenChecker, historyRouter);
 
 module.exports = app;

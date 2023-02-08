@@ -18,20 +18,28 @@ const LoginPage = () => {
     const handleSubmit = async(e)=> {
         e.preventDefault();
 
-        fetch('/tokens', {
+        let response = await fetch('/tokens', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             "body": JSON.stringify({email, password})
         })
-        .then(response => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.log('Error:', error);
-        });
+
+        if (email === '' || password === ''){
+            console.log('empty field')
+            // navigate('/login')            
+          } else if (response.status !== 201) {
+            console.log("oop")
+            // navigate('/login')            
+          } else{
+            console.log("yay")
+            let data = await response.json()
+            window.localStorage.setItem("token", data.token)
+            window.localStorage.setItem("user_id", data.user_id)
+            // navigate('/posts');
+          }
+        
         
     }
 
