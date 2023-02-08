@@ -30,6 +30,8 @@ const HomepageData = () => {
   const [date2, dateSetter2] = useState(null);
   const [eventsTitles, setEventsTitles] = useState(null);
 
+  
+
   useEffect(() => {
     const fetchData = async () => {
       const api_key = process.env.REACT_APP_API_KEY
