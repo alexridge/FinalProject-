@@ -1,8 +1,11 @@
 import {useState} from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import './LoginPage.css'
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
@@ -28,16 +31,16 @@ const LoginPage = () => {
 
         if (email === '' || password === ''){
             console.log('empty field')
-            // navigate('/login')            
+            navigate('/login')            
           } else if (response.status !== 201) {
             console.log("oop")
-            // navigate('/login')            
+            navigate('/login')            
           } else{
             console.log("yay")
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
             window.localStorage.setItem("user_id", data.user_id)
-            // navigate('/posts');
+            navigate("/profile")
           }
         
         
