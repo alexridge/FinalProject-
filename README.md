@@ -22,9 +22,9 @@
 
 #### Meet the team:
   + [Alex Ridgeway](https://github.com/alexridge)
-  + [Naomi Starr]()
-  + [Matthew Barber]()
-  + [Leon Peterkin]()
+  + [Naomi Starr](https://github.com/Naomi-github)
+  + [Matthew Barber](https://github.com/MthBarber)
+  + [Leon Peterkin](https://github.com/alexridge/FinalProject-/commits?author=CodeLee13)
   + [Valerio Franchi](https://github.com/Mahasiddha95)
 
 ####Technologies
@@ -35,7 +35,8 @@ Combining front-end mapping and back-end algorithm work, **This Day in History**
 **Testing tools:** Cypress
 
 ####APIs
-**On This Day** this is a wikimedia api which provides all the text and images for events.
+
+**On This Day**  is a wikimedia api which provides all the text and images for events.
 
 ####How to run tests
 
