@@ -397,13 +397,16 @@ const HomepageData = () => {
                 <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>        
               </div>
             )}
-
-            <button onClick={handleSetIndex}>Next</button>
+          <div className="down-bottons">
+            
             <button onClick={handleSetIndex2}>Back</button>
             <button onClick={indexReset}>Reset</button>
+            <button onClick={handleSetIndex}>Next</button>
+          </div>
             <p>
               current page {index} / {eventsExtract.length}
             </p>
+          
           </>
         )}
       </div>

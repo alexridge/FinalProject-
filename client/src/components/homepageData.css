@@ -122,8 +122,10 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
- 
-
+.down-bottons {
+        display: flex;
+        justify-content: space-between;
+}
 
 .dropbtn:hover, .dropbtn:focus {
     cursor: pointer;
