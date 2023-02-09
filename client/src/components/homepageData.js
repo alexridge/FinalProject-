@@ -17,26 +17,31 @@ const HomepageData = () => {
   const [deathsSources, setDeathsSources] = useState(null);
   const [deathsExtract, setDeathsExtract] = useState(null);
   const [deathsLink, setDeathsLink] = useState(null);
+  const [deathsTitles, setDeathsTitles] = useState(null);
+
 
   const [birthsSources, setBirthsSources] = useState(null);
   const [birthsExtract, setBirthsExtract] = useState(null);
   const [birthsLink, setBirthsLink] = useState(null);
+  const [birthsTitles, setBirthsTitles] = useState(null);
+
 
   const [holidaysSources, setHolidaysSources] = useState(null);
   const [holidaysExtract, setHolidaysExtract] = useState(null);
   const [holidaysLink, setHolidaysLink] = useState(null);
+  const [holidaysTitles, setHolidaysTitles] = useState(null);
+
 
   const [index, setIndex] = useState(null);
   const [date1, dateSetter1] = useState(null);
   const [date2, dateSetter2] = useState(null);
   const [eventsTitles, setEventsTitles] = useState(null);
 
-  
 
   useEffect(() => {
     const fetchData = async () => {
-      const api_key = process.env.REACT_APP_API_KEY
-      const user_agent = process.env.REACT_APP_USER_AGENT;
+      const api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjA4MDAwZmYzNzQ0NWJhMjExYzk4MTQwNTQ0MjI3MzUzNjA0YTliOTg2ZTc0NDE1MGRmMTM2NjhhYzBiN2IzMzRjYzkyY2FlNzM2M2RjZmZiIiwiaWF0IjoxNjc1ODY1MTg3LjI5OTQ2OSwibmJmIjoxNjc1ODY1MTg3LjI5OTQ3MiwiZXhwIjoxNjc1ODc5NTg3LjI5NDk2MSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.qis-t0QJkYF9mpHAiRUZb_yIKib-lfr_0xCRQiXQFcXwWtkBY44sjNJjIl4m1wHFzq-xPTq8VdASh2kXh4MSNjIue37l1c-CTOPvjt85hbX8P1sWv4uQxWTucDQpjphBaU_JPIcNgDnn95I8OD_aAYo435AxaMZxNHa7EhwGU7CILPazixtyyHfJunNfR8JdUs6uOrIixuMv80Nvt5CdPCNtj9vAn3PYId7UGMTtWKpmB3IwmRLYsrORnTEdOFsTmuOVCYK2VAEJurtM1EgramwOISvrsvNLJ3j0BjjYLK55jTM47qWB5jj2trL9nJOcB25LWyxT1qFCtK03umec7GP_9qCtqBDeyRpNdLkw9YVLwvXIPfcV9NOMC8o5Bslz_VvdfIoynCVFZrwhyAVGbtDDazMROAYVMrrT3fyOXWiuVxelxNLaqh0penYy9VQ9Di9Gj4_J2VWulXz2HM9F52k_w5PBxFgKxz8XMImgprwJjQpYy40PxByPuiXDnKStQ9PWePfTEzDeSaZ_btSerU33jgdkKkMnr6WeWFdc0xla3OqyOcN23lKhcBVzd-Ya10eGdJ75pKdJfXPgHDPIiB80VZkkncMkuNmnK-ORvrVKXxbafUQhmq_EGISBOq28nWMOyv1QudHeCeG9n5OcvXJVKC88y4jU-WNs1mN8MS4'
+      const user_agent = 'This Day in History (alexridge2309@gmail.com)';
 
       let today = new Date();
       let month = today.getMonth() + 1;
@@ -54,7 +59,6 @@ const HomepageData = () => {
         },
       });
 
-      
       const data = await response.json();
       console.log(data)
       // const eventsTitles = data.events.map(item => (item.text));
@@ -119,6 +123,12 @@ const HomepageData = () => {
       );
       // console.log(eventsLink);
       const eventsTitles = eventsPages.map(page => (page[0].title));
+      const birthsTitles = birthsPages.map(page => (page[0].title));
+      const holidaysTitles = holidaysPages.map(page => (page[0].title));
+      const deathsTitles = deathsPages.map(page => (page[0].title));
+
+
+
 
       setIndex(1);
       setEventsTitles(eventsTitles);
@@ -130,16 +140,18 @@ const HomepageData = () => {
       setEventsLink(eventsLink);
       console.log();
 
+      setBirthsTitles(birthsTitles)
       setBirthsSources(birthsSources);
       setBirthsExtract(birthsExtract);
       setBirthsLink(birthsLink);
       console.log(birthsLink[0]);
-
+      setDeathsTitles(deathsTitles)
       setDeathsSources(deathsSources);
       setDeathsExtract(deathsExtract);
       setDeathsLink(deathsLink);
       console.log(deathsLink[0]);
 
+      setHolidaysTitles(holidaysTitles)
       setHolidaysSources(holidaysSources);
       setHolidaysExtract(holidaysExtract);
       setHolidaysLink(holidaysLink);
@@ -149,13 +161,13 @@ const HomepageData = () => {
     fetchData();
   }, []);
 
-     let handleSetIndex = () => {
-       if (index > 42) {
-         setIndex(1);
-       } else {
-      setIndex(index + 1); 
-     }
+  let handleSetIndex = () => {
+    if (index > 42) {
+      setIndex(1);
+    } else {
+      setIndex(index + 1);
     }
+  }
 
   function dropDownFilter() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -173,8 +185,8 @@ const HomepageData = () => {
       }
     }
   };
-  
- 
+
+
 
   const [eventsToggle, setEventsToggle] = useState(true);
   const [birthsToggle, setBirthsToggle] = useState(false);
@@ -186,9 +198,9 @@ const HomepageData = () => {
       setEventsToggle(false);
     } else if (eventsToggle === false)
       setEventsToggle(true);
-      setBirthsToggle(false);
-      setDeathsToggle(false);
-      setHolidaysToggle(false);
+    setBirthsToggle(false);
+    setDeathsToggle(false);
+    setHolidaysToggle(false);
   };
 
   const handleBirthsFilter = (e) => {
@@ -220,7 +232,7 @@ const HomepageData = () => {
 
   return (
     <div className="event-page">
-      <p>now showing events from: {date1}</p>
+      <p>Now Showing Events Happened in Date - {date1}</p>
       <div className="dropdown">
         <button onClick={dropDownFilter} className="dropbtn">
           Filter Pages
@@ -248,12 +260,16 @@ const HomepageData = () => {
                   />
                 </div>
                 <div className="event-text">
-                  <ul>
-                    <li>{eventsExtract[-1 + index]}</li>
-                  </ul>
+                  <div>
+                    <p>{eventsExtract[-1 + index]}</p>
+                    <div className="event-image">
+                      <img
+                        src={eventsSources[-1 + index]} alt="img" />
+                    </div>
+                  </div>
                   <a href={eventsLink[-1 + index]}>Click to read more</a>
                 </div>
-                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
@@ -273,7 +289,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={birthsLink[-1 + index]}>Click to read more</a>
                 </div>
-                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
@@ -293,7 +309,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={deathsLink[-1 + index]}>Click to read more</a>
                 </div>
-                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
@@ -317,15 +333,15 @@ const HomepageData = () => {
               </div>
             )}
 
-            <button onClick={handleSetIndex}>Next</button>
-            <p>
-              current page {index} / {eventsExtract.length}
-            </p>
-          </>
-        )}
-      </div>
-    </div>
-  );
+                <button onClick={handleSetIndex}>Next</button>
+                <p>
+                  Current Page {index} / {eventsExtract.length}
+                </p>
+              </>
+            )}
+          </div>
+  </div>
+      );
 };
 
-export default HomepageData;
+      export default HomepageData;

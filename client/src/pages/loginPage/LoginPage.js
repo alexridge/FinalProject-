@@ -2,6 +2,7 @@ import {useState} from 'react';
 import Navbar from '../../components/navbar/navbar';
 import './LoginPage.css'
 import { useNavigate } from "react-router-dom";
+import Footer from '../../components/footer/footer';
 
 const LoginPage = () => {
 
@@ -31,23 +32,23 @@ const LoginPage = () => {
 
         if (email === '' || password === ''){
             console.log('empty field')
-            navigate('/login')            
-          } else if (response.status !== 201) {
+            navigate('/login')
+            } else if (response.status !== 201) {
             console.log("oop")
-            navigate('/login')            
-          } else{
+            navigate('/login')
+            } else{
             console.log("yay")
             let data = await response.json()
             window.localStorage.setItem("token", data.token)
             window.localStorage.setItem("user_id", data.user_id)
             navigate("/profile")
-          }
-        
-        
+            }
+
+
     }
 
     return (
-        <div id="main-container">
+        <div id="login-main-container">
             <Navbar />
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
@@ -57,6 +58,7 @@ const LoginPage = () => {
                 <input type="password" value={password} onChange={handlePasswordChange}></input>
                 <input type="submit" value="Submit"/>
             </form>
+            <Footer />
         </div>
     )
 };

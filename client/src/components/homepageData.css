@@ -34,8 +34,50 @@
     max-width: 1000px;
     max-height: 1000px;
     object-fit: contain;
-    
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
+
+.birth-image img {
+    margin-bottom: 10px;
+    padding-top: 100px;
+    width: 1000px;
+    height: 1000px;
+    max-width: 1000px;
+    max-height: 1000px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.death-image img {
+    margin-bottom: 10px;
+    padding-top: 100px;
+    width: 1000px;
+    height: 1000px;
+    max-width: 1000px;
+    max-height: 1000px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
+.holiday-image img {
+    margin-bottom: 10px;
+    padding-top: 100px;
+    width: 1000px;
+    height: 1000px;
+    max-width: 1000px;
+    max-height: 1000px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
 
 @media (max-width: 1000px){
     .event-image img {

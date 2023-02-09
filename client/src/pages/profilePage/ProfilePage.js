@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../../components/navbar/navbar'
 import './ProfilePage.css';
+import Footer from '../../components/footer/footer';
+
 
 const ProfilePage = () => {
 
@@ -40,6 +42,7 @@ const ProfilePage = () => {
                     )
                 })}
             </div>
+            <Footer />
         </div>
     )
 }
