@@ -1,8 +1,12 @@
 import {useState} from 'react';
 import Navbar from '../../components/navbar/navbar';
 import './LoginPage.css'
+import { useNavigate } from "react-router-dom";
+import Footer from '../../components/footer/footer';
 
 const LoginPage = () => {
+
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
@@ -18,34 +22,43 @@ const LoginPage = () => {
     const handleSubmit = async(e)=> {
         e.preventDefault();
 
-        fetch('/tokens', {
+        let response = await fetch('/tokens', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             "body": JSON.stringify({email, password})
         })
-        .then(response => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.log('Error:', error);
-        });
+
+        if (email === '' || password === ''){
+            console.log('empty field')
+            navigate('/login')
+            } else if (response.status !== 201) {
+            console.log("oop")
+            navigate('/login')
+            } else{
+            console.log("yay")
+            let data = await response.json()
+            window.localStorage.setItem("token", data.token)
+            window.localStorage.setItem("user_id", data.user_id)
+            navigate("/profile")
+            }
+
 
     }
 
     return (
-        <div id="main-container">
+        <div id="login-main-container">
             <Navbar />
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <label>Email</label>
-                <input type={email} value={email} onChange={handleEmailChange}></input>
+                <input type="email" value={email} onChange={handleEmailChange}></input>
                 <label>Password</label>
-                <input type={password} value={password} onChange={handlePasswordChange}></input>
+                <input type="password" value={password} onChange={handlePasswordChange}></input>
                 <input type="submit" value="Submit"/>
             </form>
+            <Footer />
         </div>
     )
 };

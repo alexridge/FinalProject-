@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Fragment} from "react";
 // import PropTypes from 'prop-types';
 import './homepageData.css';
-
-
+import Footer from "./footer/footer";
+import SaveHistory from "./saveHistoryButton/SaveHistory";
 
 
 
@@ -25,18 +25,25 @@ const HomepageData = () => {
   const [deathsSources, setDeathsSources] = useState(null);
   const [deathsExtract, setDeathsExtract] = useState(null);
   const [deathsLink, setDeathsLink] = useState(null);
+  const [deathsTitles, setDeathsTitles] = useState(null);
+
 
   const [birthsSources, setBirthsSources] = useState(null);
   const [birthsExtract, setBirthsExtract] = useState(null);
   const [birthsLink, setBirthsLink] = useState(null);
+  const [birthsTitles, setBirthsTitles] = useState(null);
+
 
   const [holidaysSources, setHolidaysSources] = useState(null);
   const [holidaysExtract, setHolidaysExtract] = useState(null);
   const [holidaysLink, setHolidaysLink] = useState(null);
+  const [holidaysTitles, setHolidaysTitles] = useState(null);
+
 
   const [index, setIndex] = useState(null);
   const [date1, dateSetter1] = useState(null);
   const [eventsTitles, setEventsTitles] = useState(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -132,6 +139,12 @@ const HomepageData = () => {
       );
       // console.log(eventsLink);
       const eventsTitles = eventsPages.map(page => (page[0].title));
+      const birthsTitles = birthsPages.map(page => (page[0].title));
+      const holidaysTitles = holidaysPages.map(page => (page[0].title));
+      const deathsTitles = deathsPages.map(page => (page[0].title));
+
+
+
 
       setIndex(1);
       setEventsTitles(eventsTitles);
@@ -143,16 +156,18 @@ const HomepageData = () => {
       setEventsLink(eventsLink);
       console.log();
 
+      setBirthsTitles(birthsTitles)
       setBirthsSources(birthsSources);
       setBirthsExtract(birthsExtract);
       setBirthsLink(birthsLink);
       console.log(birthsLink[0]);
-
+      setDeathsTitles(deathsTitles)
       setDeathsSources(deathsSources);
       setDeathsExtract(deathsExtract);
       setDeathsLink(deathsLink);
       console.log(deathsLink[0]);
 
+      setHolidaysTitles(holidaysTitles)
       setHolidaysSources(holidaysSources);
       setHolidaysExtract(holidaysExtract);
       setHolidaysLink(holidaysLink);
@@ -279,7 +294,7 @@ const HomepageData = () => {
 
   return (
     <div className="event-page">
-      <p>now showing events from: {date1}</p>
+      <p>Now Showing Events Happened in Date - {date1}</p>
       <div className="dropdown">
         <button onClick={dropDownFilter} className="dropbtn">
           Filter Pages
@@ -312,11 +327,16 @@ const HomepageData = () => {
                   />
                 </div>
                 <div className="event-text">
-                  <ul>
-                    <li>{eventsExtract[-1 + index]}</li>
-                  </ul>
+                  <div>
+                    <p>{eventsExtract[-1 + index]}</p>
+                    <div className="event-image">
+                      <img
+                        src={eventsSources[-1 + index]} alt="img" />
+                    </div>
+                  </div>
                   <a href={eventsLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
@@ -336,6 +356,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={birthsLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
@@ -355,6 +376,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={deathsLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
@@ -374,6 +396,7 @@ const HomepageData = () => {
                   </ul>
                   <a href={holidaysLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
               </div>
             )}
 
@@ -390,4 +413,4 @@ const HomepageData = () => {
   );
 };
 
-export default HomepageData;
+      export default HomepageData;
