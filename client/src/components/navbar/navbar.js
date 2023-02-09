@@ -10,7 +10,6 @@ const Navbar = () => {
                 </div>
             </Link>
             <div className="buttons-container">
-                <button data-cy="filter-button">Filter</button>
                 <Link to='/login'><button data-cy="login-button">Login</button></Link>
                 <Link to='/signup'><button data-cy="signup-button">Sign Up</button></Link>
             </div>

@@ -179,15 +179,15 @@ const HomepageData = () => {
   }, [useData]);
 
      let handleSetIndex = () => {
-       if (index > eventsLink.length) {
+       if (index > eventsLink.length - 1) {
          setIndex(1);
        } else {
       setIndex(index + 1); 
      }
     }
     let handleSetIndex2 = () => {
-      if (index < 1) {
-        setIndex(1);
+      if (index < 2) {
+        setIndex(eventsLink.length);
       } else {
         setIndex(index - 1);
       }
@@ -294,7 +294,7 @@ const HomepageData = () => {
 
   return (
     <div className="event-page">
-      <p>Now Showing Events Happened in Date - {date1}</p>
+      <p>Now Showing Events Which Happened on Date: {date1}</p>
       <div className="dropdown">
         <button onClick={dropDownFilter} className="dropbtn">
           Filter Pages
@@ -319,12 +319,6 @@ const HomepageData = () => {
             {eventsToggle && (
               <div className="event">
                 <div className="event-image">
-                  <img
-                    src={eventsSources[-1 + index]}
-                    alt="img"
-                    width="40%"
-                    height="40%"
-                  />
                 </div>
                 <div className="event-text">
                   <div>
