@@ -1,7 +1,10 @@
 import './SignUpForm.css'
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
+
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -27,9 +30,11 @@ const SignUpForm = () => {
             .then((response) => response.json())
             .then((data) => {
                 console.log('Success:', data);
+                navigate('/');
             })
             .catch((error) => {
                 console.log('Error:', error);
+                navigate('/signup')
             });
     }
 
