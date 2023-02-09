@@ -1,7 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 // import PropTypes from 'prop-types';
 import './homepageData.css';
- 
+import Footer from "./footer/footer";
+import SaveHistory from "./saveHistoryButton/SaveHistory";
+
 
 
 const HomepageData = () => {
@@ -35,6 +37,7 @@ const HomepageData = () => {
   const [date2, dateSetter2] = useState(null);
   const [eventsTitles, setEventsTitles] = useState(null);
 
+
   useEffect(() => {
     const fetchData = async () => {
       const api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjA4MDAwZmYzNzQ0NWJhMjExYzk4MTQwNTQ0MjI3MzUzNjA0YTliOTg2ZTc0NDE1MGRmMTM2NjhhYzBiN2IzMzRjYzkyY2FlNzM2M2RjZmZiIiwiaWF0IjoxNjc1ODY1MTg3LjI5OTQ2OSwibmJmIjoxNjc1ODY1MTg3LjI5OTQ3MiwiZXhwIjoxNjc1ODc5NTg3LjI5NDk2MSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.qis-t0QJkYF9mpHAiRUZb_yIKib-lfr_0xCRQiXQFcXwWtkBY44sjNJjIl4m1wHFzq-xPTq8VdASh2kXh4MSNjIue37l1c-CTOPvjt85hbX8P1sWv4uQxWTucDQpjphBaU_JPIcNgDnn95I8OD_aAYo435AxaMZxNHa7EhwGU7CILPazixtyyHfJunNfR8JdUs6uOrIixuMv80Nvt5CdPCNtj9vAn3PYId7UGMTtWKpmB3IwmRLYsrORnTEdOFsTmuOVCYK2VAEJurtM1EgramwOISvrsvNLJ3j0BjjYLK55jTM47qWB5jj2trL9nJOcB25LWyxT1qFCtK03umec7GP_9qCtqBDeyRpNdLkw9YVLwvXIPfcV9NOMC8o5Bslz_VvdfIoynCVFZrwhyAVGbtDDazMROAYVMrrT3fyOXWiuVxelxNLaqh0penYy9VQ9Di9Gj4_J2VWulXz2HM9F52k_w5PBxFgKxz8XMImgprwJjQpYy40PxByPuiXDnKStQ9PWePfTEzDeSaZ_btSerU33jgdkKkMnr6WeWFdc0xla3OqyOcN23lKhcBVzd-Ya10eGdJ75pKdJfXPgHDPIiB80VZkkncMkuNmnK-ORvrVKXxbafUQhmq_EGISBOq28nWMOyv1QudHeCeG9n5OcvXJVKC88y4jU-WNs1mN8MS4'
@@ -57,6 +60,7 @@ const HomepageData = () => {
       });
 
       const data = await response.json();
+      console.log(data)
       // const eventsTitles = data.events.map(item => (item.text));
       // console.log(eventsTitles);
       const eventsPages = data.events.map((event) => event.pages);
@@ -141,7 +145,6 @@ const HomepageData = () => {
       setBirthsExtract(birthsExtract);
       setBirthsLink(birthsLink);
       console.log(birthsLink[0]);
-      
       setDeathsTitles(deathsTitles)
       setDeathsSources(deathsSources);
       setDeathsExtract(deathsExtract);
@@ -158,13 +161,13 @@ const HomepageData = () => {
     fetchData();
   }, []);
 
-     let handleSetIndex = () => {
-       if (index > 42) {
-         setIndex(1);
-       } else {
-      setIndex(index + 1); 
-     }
+  let handleSetIndex = () => {
+    if (index > 42) {
+      setIndex(1);
+    } else {
+      setIndex(index + 1);
     }
+  }
 
   function dropDownFilter() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -182,8 +185,8 @@ const HomepageData = () => {
       }
     }
   };
-  
- 
+
+
 
   const [eventsToggle, setEventsToggle] = useState(true);
   const [birthsToggle, setBirthsToggle] = useState(false);
@@ -195,9 +198,9 @@ const HomepageData = () => {
       setEventsToggle(false);
     } else if (eventsToggle === false)
       setEventsToggle(true);
-      setBirthsToggle(false);
-      setDeathsToggle(false);
-      setHolidaysToggle(false);
+    setBirthsToggle(false);
+    setDeathsToggle(false);
+    setHolidaysToggle(false);
   };
 
   const handleBirthsFilter = (e) => {
@@ -248,91 +251,97 @@ const HomepageData = () => {
           <>
             {eventsToggle && (
               <div className="event">
-                <div className='event-title'>
-                  {eventsTitles[index - 1].replace(/_/g, " ")}
+                <div className="event-image">
+                  <img
+                    src={eventsSources[-1 + index]}
+                    alt="img"
+                    width="40%"
+                    height="40%"
+                  />
                 </div>
                 <div className="event-text">
                   <div>
                     <p>{eventsExtract[-1 + index]}</p>
-                <div className="event-image">
-                  <img
-                    src={eventsSources[-1 + index]} alt="img"/>
-                </div>
-                </div>
+                    <div className="event-image">
+                      <img
+                        src={eventsSources[-1 + index]} alt="img" />
+                    </div>
+                  </div>
                   <a href={eventsLink[-1 + index]}>Click to read more</a>
                 </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
             {birthsToggle && (
               <div className="births">
-                <div className='event-title'>
-                  {birthsTitles[index - 1].replace(/_/g, " ")}
-                </div>
-                <div className="event-text">
-                  <div>
-                    <p>{birthsExtract[-1 + index]}</p>
                 <div className="birth-image">
                   <img
                     src={birthsSources[-1 + index]}
                     alt="img"
+                    width="40%"
+                    height="40%"
                   />
                 </div>
+                <div className="birth-text">
+                  <ul>
+                    <li>{birthsExtract[-1 + index]}</li>
+                  </ul>
+                  <a href={birthsLink[-1 + index]}>Click to read more</a>
                 </div>
-                  <a href={birthsLink[-1 + index]}>Click to Read More</a>
-                </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
             {deathsToggle && (
               <div className="deaths">
-                <div className='event-title'>
-                {deathsTitles[index - 1].replace(/_/g, " ")}
-              </div>
-              <div className="event-text">
-                  <div>
-                    <p>{deathsExtract[-1 + index]}</p>                 
                 <div className="death-image">
                   <img
                     src={deathsSources[-1 + index]}
                     alt="img"
+                    width="40%"
+                    height="40%"
                   />
                 </div>
+                <div className="death-text">
+                  <ul>
+                    <li>{deathsExtract[-1 + index]}</li>
+                  </ul>
+                  <a href={deathsLink[-1 + index]}>Click to read more</a>
                 </div>
-                  <a href={deathsLink[-1 + index]}>Click to Read More</a>
-                </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
               </div>
             )}
 
             {holidaysToggle && (
               <div className="holidays">
-                <div className='event-title'>
-                  {holidaysTitles[index - 1].replace(/_/g, " ")}
-                </div>
-                <div className="event-text">
-                  <div>
-                    <p>{holidaysExtract[-1 + index]}</p>                
                 <div className="holiday-image">
                   <img
                     src={holidaysSources[-1 + index]}
                     alt="img"
+                    width="40%"
+                    height="40%"
                   />
-                </div>   
                 </div>
-                  <a href={holidaysLink[-1 + index]}>Click to Read More</a>
-                </div>             
+                <div className="holiday-text">
+                  <ul>
+                    <li>{holidaysExtract[-1 + index]}</li>
+                  </ul>
+                  <a href={holidaysLink[-1 + index]}>Click to read more</a>
+                </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
               </div>
             )}
 
-            <button onClick={handleSetIndex}>Next</button>
-            <p>
-              Current Page {index} / {eventsExtract.length}
-            </p>
-          </>
-        )}
-      </div>
-    </div>
-  );
+                <button onClick={handleSetIndex}>Next</button>
+                <p>
+                  Current Page {index} / {eventsExtract.length}
+                </p>
+              </>
+            )}
+          </div>
+  </div>
+      );
 };
 
-export default HomepageData;
+      export default HomepageData;
