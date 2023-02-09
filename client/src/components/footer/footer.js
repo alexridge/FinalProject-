@@ -27,7 +27,7 @@ const Footer = () => {
                       <p>And with beatiful eyes</p>
                   </ul>
               </div>
-              </div>
+              
               {/* Colums 3 */}
               <div className='col'>
                  <ul className='list-unstyled'>
@@ -52,7 +52,8 @@ const Footer = () => {
                 Copyright &copy; {new Date().getFullYear()} Today in History SFP
              </div>
         </div>
-    </div>
+     </div>
+  </div>
     
    )
 };

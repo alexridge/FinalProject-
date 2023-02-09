@@ -40,7 +40,7 @@ const HomepageData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjA4MDAwZmYzNzQ0NWJhMjExYzk4MTQwNTQ0MjI3MzUzNjA0YTliOTg2ZTc0NDE1MGRmMTM2NjhhYzBiN2IzMzRjYzkyY2FlNzM2M2RjZmZiIiwiaWF0IjoxNjc1ODY1MTg3LjI5OTQ2OSwibmJmIjoxNjc1ODY1MTg3LjI5OTQ3MiwiZXhwIjoxNjc1ODc5NTg3LjI5NDk2MSwic3ViIjoiIiwiaXNzIjoiaHR0cHM6Ly9tZXRhLndpa2ltZWRpYS5vcmciLCJyYXRlbGltaXQiOnsicmVxdWVzdHNfcGVyX3VuaXQiOjUwMDAsInVuaXQiOiJIT1VSIn0sInNjb3BlcyI6WyJiYXNpYyJdfQ.qis-t0QJkYF9mpHAiRUZb_yIKib-lfr_0xCRQiXQFcXwWtkBY44sjNJjIl4m1wHFzq-xPTq8VdASh2kXh4MSNjIue37l1c-CTOPvjt85hbX8P1sWv4uQxWTucDQpjphBaU_JPIcNgDnn95I8OD_aAYo435AxaMZxNHa7EhwGU7CILPazixtyyHfJunNfR8JdUs6uOrIixuMv80Nvt5CdPCNtj9vAn3PYId7UGMTtWKpmB3IwmRLYsrORnTEdOFsTmuOVCYK2VAEJurtM1EgramwOISvrsvNLJ3j0BjjYLK55jTM47qWB5jj2trL9nJOcB25LWyxT1qFCtK03umec7GP_9qCtqBDeyRpNdLkw9YVLwvXIPfcV9NOMC8o5Bslz_VvdfIoynCVFZrwhyAVGbtDDazMROAYVMrrT3fyOXWiuVxelxNLaqh0penYy9VQ9Di9Gj4_J2VWulXz2HM9F52k_w5PBxFgKxz8XMImgprwJjQpYy40PxByPuiXDnKStQ9PWePfTEzDeSaZ_btSerU33jgdkKkMnr6WeWFdc0xla3OqyOcN23lKhcBVzd-Ya10eGdJ75pKdJfXPgHDPIiB80VZkkncMkuNmnK-ORvrVKXxbafUQhmq_EGISBOq28nWMOyv1QudHeCeG9n5OcvXJVKC88y4jU-WNs1mN8MS4'
+      const api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjZlZmI1ZDNlNGY4NzE3Mzc3NDcyOGM5MWIyYzM4Y2MxOWZmYjdlZGE5ZTA1Njc3MDZjM2ZhMTQyYTc3MDU0ZWRkODI1ZWQyOTc1NzU4Y2IyIiwiaWF0IjoxNjc1OTM2MDY1LjY2Njk5MywibmJmIjoxNjc1OTM2MDY1LjY2Njk5NywiZXhwIjoxNjc1OTUwNDY1LjY2MTc2LCJzdWIiOiIiLCJpc3MiOiJodHRwczovL21ldGEud2lraW1lZGlhLm9yZyIsInJhdGVsaW1pdCI6eyJyZXF1ZXN0c19wZXJfdW5pdCI6NTAwMCwidW5pdCI6IkhPVVIifSwic2NvcGVzIjpbImJhc2ljIl19.ZilXP9jxmG2xU0S5pb2BijwnERzfYLagsSv9Jtznx4HujUSAkJQAkJpMacwNdJ20HWs34w0vOiUIMNPxzerYF9hWLolGYFqrJ_q6RQJumE4D5DHIkPMjU2NrazvFWDT46pjDsMOl3txBRruF0NQiaZEg7x4zj1Y6I-JaQIhTN2zyANzGmLKW4XfX-WU46AZMYit7uya7z89QDOKq6Ro7VgSJNUTSPthFTCw2-XwjQCYPbOtxrbUD44nz2Y6SZavugJzg6pcTOJfN2Aips4n0KXEEJYC1lyLJEXwKvee845fUmNueKYVcFogCC0yEhjQvH9LtHTJsl0WIevJ20xrOq1NQWOWODknO9aec1UB8D28be0g0TJqN-Td7MgY6Ti6VLZOczuEH6m-kXEzeUikjlSJh51zljd0RtyXivfA1EcIUSSh7J8riy69DnhIr_w2tWZH86YSaoI-BAh_1S6zuOAwuO-MMVWrGB_KRZEMlJy6piTrMoVkxad1FM3Br2QF9qvJXL0iMQvBzAWjQ1_-JizFz1iyQOxKzLUaOYOTCzPoJoLZeZYGi4nPJ6uqXKnPowSJ33a2GqdTC-Z1DUSSoOw50ZojgRMX-kekQFeygqQ4UIrRa-bBPXQJs8tS4do0Fs0Mi8kf3SQ5tUeXRWDdARwFgNVut766-5ABeekILFfE'
       const user_agent = 'This Day in History (alexridge2309@gmail.com)';
 
       let today = new Date();
@@ -251,97 +251,95 @@ const HomepageData = () => {
           <>
             {eventsToggle && (
               <div className="event">
-                <div className="event-image">
-                  <img
-                    src={eventsSources[-1 + index]}
-                    alt="img"
-                    width="40%"
-                    height="40%"
-                  />
+                <div className='event-title'>
+                  {eventsTitles[index - 1].replace(/_/g, " ")}
                 </div>
                 <div className="event-text">
                   <div>
                     <p>{eventsExtract[-1 + index]}</p>
-                    <div className="event-image">
-                      <img
-                        src={eventsSources[-1 + index]} alt="img" />
-                    </div>
-                  </div>
-                  <a href={eventsLink[-1 + index]}>Click to read more</a>
+                    <a href={eventsLink[-1 + index]}>Click to read more</a>
+                <div className="event-image">
+                  <img
+                    src={eventsSources[-1 + index]} alt="img"/>
                 </div>
-                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
+                </div>
+                </div>
+                  <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
               </div>
             )}
 
             {birthsToggle && (
               <div className="births">
+                <div className='event-title'>
+                  {birthsTitles[index - 1].replace(/_/g, " ")}
+                </div>
+                <div className="event-text">
+                  <div>
+                    <p>{birthsExtract[-1 + index]}</p>
+                    <a href={birthsLink[-1 + index]}>Click to Read More</a>
                 <div className="birth-image">
                   <img
                     src={birthsSources[-1 + index]}
                     alt="img"
-                    width="40%"
-                    height="40%"
                   />
                 </div>
-                <div className="birth-text">
-                  <ul>
-                    <li>{birthsExtract[-1 + index]}</li>
-                  </ul>
-                  <a href={birthsLink[-1 + index]}>Click to read more</a>
                 </div>
-                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
-              </div>
-            )}
-
-            {deathsToggle && (
-              <div className="deaths">
-                <div className="death-image">
-                  <img
-                    src={deathsSources[-1 + index]}
-                    alt="img"
-                    width="40%"
-                    height="40%"
-                  />
-                </div>
-                <div className="death-text">
-                  <ul>
-                    <li>{deathsExtract[-1 + index]}</li>
-                  </ul>
-                  <a href={deathsLink[-1 + index]}>Click to read more</a>
-                </div>
-                <SaveHistory sentText={birthsExtract[-1 + index]} sentImage={birthsSources[-1 + index]} sentTitle={"event"} />
-              </div>
-            )}
-
-            {holidaysToggle && (
-              <div className="holidays">
-                <div className="holiday-image">
-                  <img
-                    src={holidaysSources[-1 + index]}
-                    alt="img"
-                    width="40%"
-                    height="40%"
-                  />
-                </div>
-                <div className="holiday-text">
-                  <ul>
-                    <li>{holidaysExtract[-1 + index]}</li>
-                  </ul>
-                  <a href={holidaysLink[-1 + index]}>Click to read more</a>
                 </div>
                 <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
               </div>
             )}
 
-                <button onClick={handleSetIndex}>Next</button>
-                <p>
-                  Current Page {index} / {eventsExtract.length}
-                </p>
-              </>
+            {deathsToggle && (
+              <div className="deaths">
+                <div className='event-title'>
+                {deathsTitles[index - 1].replace(/_/g, " ")}
+              </div>
+              <div className="event-text">
+                  <div>
+                    <p>{deathsExtract[-1 + index]}</p>  
+                    <a href={deathsLink[-1 + index]}>Click to Read More</a>               
+                <div className="death-image">
+                  <img
+                    src={deathsSources[-1 + index]}
+                    alt="img"
+                  />
+                </div>
+                </div>
+                </div>
+                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>
+              </div>
+            )}
+
+            {holidaysToggle && (
+              <div className="holidays">
+                <div className='event-title'>
+                  {holidaysTitles[index - 1].replace(/_/g, " ")}
+                </div>
+                <div className="event-text">
+                  <div>
+                    <p>{holidaysExtract[-1 + index]}</p>
+                    <a href={holidaysLink[-1 + index]}>Click to Read More</a>                
+                <div className="holiday-image">
+                  <img
+                    src={holidaysSources[-1 + index]}
+                    alt="img"
+                  />
+                </div>   
+                </div>
+                </div>     
+                <SaveHistory sentText={birthsExtract[-1 + index]}  sentImage={birthsSources[-1 + index]} sentTitle={"event"}/>        
+              </div>
+            )}
+
+            <button onClick={handleSetIndex}>Next</button>
+            <p>
+              Current Page {index} / {eventsExtract.length}
+            </p>
+            </>
             )}
           </div>
-  </div>
-      );
+      </div>
+  );
 };
 
       export default HomepageData;

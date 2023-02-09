@@ -1,3 +1,4 @@
+import './SaveHistory.css'
 
 
 const SaveHistory = (props) => {
@@ -28,8 +29,8 @@ const SaveHistory = (props) => {
     }
 
     return (
-        <div>
-            <button onClick={handleClick}>Save This Event</button>
+        <div className='container'>
+            <button className='save' onClick={handleClick}>Save This Event</button>
         </div>
     )
 }
