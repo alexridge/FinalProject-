@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment} from "react";
 // import PropTypes from 'prop-types';
 import './homepageData.css';
 import Footer from "./footer/footer";
@@ -7,8 +7,16 @@ import SaveHistory from "./saveHistoryButton/SaveHistory";
 
 
 const HomepageData = () => {
-  const [data, setData] = useState(null);
+  const [useData, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+
+
+
+  // const [newDay, setNewDay] = useState(null); 
+  const [day, setDay] = useState(null); 
+  // const [newMonth, setNewMonth] = useState(null); 
+  const [month, setMonth] = useState(null); 
+  
 
   const [eventsSources, setEventsSources] = useState(null);
   const [eventsExtract, setEventsExtract] = useState(null);
@@ -34,20 +42,21 @@ const HomepageData = () => {
 
   const [index, setIndex] = useState(null);
   const [date1, dateSetter1] = useState(null);
-  const [date2, dateSetter2] = useState(null);
   const [eventsTitles, setEventsTitles] = useState(null);
 
 
   useEffect(() => {
     const fetchData = async () => {
-      const api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiMzZhYjNlOTY2MjU4MjA5YWY4OGEyZjdkYzFmZWZmNyIsImp0aSI6IjNkMDViZmQ3OTc2YjE5YzU3NTlmYzdjMWUzZjhjMmMzOTU1MmQ2NzEwYmM2NDM1ZmQwZWUyNWZhN2ZiNmY5OGFkYjUxYmY5NzhjOGU4YmE5IiwiaWF0IjoxNjc1OTUwODQ2LjAyOTk2MiwibmJmIjoxNjc1OTUwODQ2LjAyOTk2NywiZXhwIjoxNjc1OTY1MjQ2LjAyNTUzLCJzdWIiOiIiLCJpc3MiOiJodHRwczovL21ldGEud2lraW1lZGlhLm9yZyIsInJhdGVsaW1pdCI6eyJyZXF1ZXN0c19wZXJfdW5pdCI6NTAwMCwidW5pdCI6IkhPVVIifSwic2NvcGVzIjpbImJhc2ljIl19.pOLcRdL_4xqQ9QMn93m1z5Fq4yLH6YpyvNCaFH0UAec8VfVt70B_UE1BsfTLzh-E2-Wltxs2odtRCTHXBwJO2n4WLDuYKbcaRqbGdm9N_9swvid4L63jIC9ECH0wBPsgHp4eAAAcioYiA_kqgoswAQkxI894Z8T-L_e7eTQjoJP8K5FeCvZoGVKUUoPb9ALOlts2PNbGMb2FQNRwcBs5zxehW7mWj9U31qmcAV0L3I-fNvXkPbTDnXwFdhZe31oAH-rd6eaM_UTsmClhhL9Phh_wnyu5X8AyO4qFejPJKAadb1tv1F6x1fAhE-L4IrspYe1U_rKoo_4mRLy3_F6wjz23cRYzbqafyEIh6OmJv2KWpe1aFfiGxYDNfE44Gj38-P9kTOy9xgC_0-ZkvbKa0wtQTEXo9P_UHRH9C3e9bJEq_P1v5nsKzuUr4KB_R8sZQ43OW4WHGcAq0m54kr_2Rq_LfHm9YAP2dadVKlsQAaXggZwfN5Nn7W6D2tHfaOWmQGhekCchfBATZ2x57ihoWY0L-ZNaLYDGYghHpeANgcJ1a9214tRHuHJYAvJlLkbY-8bIdcXYNxrBggkFkGhIvaQPAeXlirxl7YPYydogWn8TyImsJoAftUWosdHnMdlhObxkqvLi81Xz-y-Heb3j2914qa59NccDE8EHV9-g_Kk'
-      const user_agent = 'This Day in History (alexridge2309@gmail.com)';
+
+      
+      const api_key = process.env.REACT_APP_API_KEY;
+      const user_agent = process.env.REACT_APP_USER_AGENT;
+
+  
 
       let today = new Date();
       let month = today.getMonth() + 1;
       let day = today.getDate();
-      dateSetter1(`${day}/${month}`);
-      dateSetter2(`2023-${month}-${day}`);
       let url = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`;
 
       let response = await fetch(url, {
@@ -55,18 +64,25 @@ const HomepageData = () => {
         headers: {
           Authorization:
             `Bearer ${api_key}`,
-          "Api-User-Agent": `${user_agent}`,
+          "Api-User-Agent": `${user_agent}`
         },
       });
 
-      const data = await response.json();
-      console.log(data)
+    
+      const data1 = await response.json();
+      // dataHandler(data1);
+   
+      
+      console.log(document.getElementById('newDate').value);
+      
+      //  let useData = data1
+       
       // const eventsTitles = data.events.map(item => (item.text));
       // console.log(eventsTitles);
-      const eventsPages = data.events.map((event) => event.pages);
-      const birthsPages = data.births.map((birth) => birth.pages);
-      const deathsPages = data.deaths.map((death) => death.pages);
-      const holidaysPages = data.holidays.map((holiday) => holiday.pages);
+      const eventsPages = useData.events.map((event) => event.pages);
+      const birthsPages = useData.births.map((birth) => birth.pages);
+      const deathsPages = useData.deaths.map((death) => death.pages);
+      const holidaysPages = useData.holidays.map((holiday) => holiday.pages);
       // console.log(eventsPages);
       const eventsImages = eventsPages.map((page) => page[0].originalimage);
       const birthsImages = birthsPages.map((page) => page[0].originalimage);
@@ -132,7 +148,7 @@ const HomepageData = () => {
 
       setIndex(1);
       setEventsTitles(eventsTitles);
-      setData(data);
+      // setData(data);
       setLoading(false);
 
       setEventsSources(eventsSources);
@@ -156,18 +172,30 @@ const HomepageData = () => {
       setHolidaysExtract(holidaysExtract);
       setHolidaysLink(holidaysLink);
       console.log(holidaysLink[0]);
+      
     };
 
     fetchData();
-  }, []);
+  }, [useData]);
 
-  let handleSetIndex = () => {
-    if (index > 42) {
-      setIndex(1);
-    } else {
-      setIndex(index + 1);
+     let handleSetIndex = () => {
+       if (index > eventsLink.length - 1) {
+         setIndex(1);
+       } else {
+      setIndex(index + 1); 
+     }
     }
-  }
+    let handleSetIndex2 = () => {
+      if (index < 2) {
+        setIndex(eventsLink.length);
+      } else {
+        setIndex(index - 1);
+      }
+    }
+
+    let indexReset = () => {
+      setIndex(1);
+    }
 
   function dropDownFilter() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -185,8 +213,38 @@ const HomepageData = () => {
       }
     }
   };
+    function dataHandler (data) {
+      setData(data); 
+    }
 
 
+     const subButton = async() => {
+     const newDate = document.getElementById('newDate').value 
+     const dateArr = newDate.split('-')
+     const newDay = dateArr[2]
+     const newMonth = dateArr[1]
+    
+    //  setDay(newDay);
+    //  setMonth(newMonth);
+     dateSetter1(`${newMonth}-${newDay}`);
+     
+
+     const api_key = process.env.REACT_APP_API_KEY;
+      const user_agent = process.env.REACT_APP_USER_AGENT;
+     let url = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${newMonth}/${newDay}`;
+    
+     let response = await fetch(url, {
+       method: "get",
+       headers: {
+         Authorization:
+           `Bearer ${api_key}`,
+         "Api-User-Agent": `${user_agent}`
+        }});
+        let data2 = await response.json() 
+        dataHandler(data2);
+        console.log(useData)
+       
+  }; 
 
   const [eventsToggle, setEventsToggle] = useState(true);
   const [birthsToggle, setBirthsToggle] = useState(false);
@@ -198,9 +256,10 @@ const HomepageData = () => {
       setEventsToggle(false);
     } else if (eventsToggle === false)
       setEventsToggle(true);
-    setBirthsToggle(false);
-    setDeathsToggle(false);
-    setHolidaysToggle(false);
+      setBirthsToggle(false);
+      setDeathsToggle(false);
+      setHolidaysToggle(false);
+      indexReset();
   };
 
   const handleBirthsFilter = (e) => {
@@ -209,6 +268,7 @@ const HomepageData = () => {
       setEventsToggle(false);
       setDeathsToggle(false);
       setHolidaysToggle(false);
+      indexReset();
     } else if (birthsToggle === true) setBirthsToggle(false);
   };
 
@@ -218,6 +278,7 @@ const HomepageData = () => {
       setEventsToggle(false);
       setBirthsToggle(false);
       setHolidaysToggle(false);
+      indexReset();
     } else if (deathsToggle === true) setDeathsToggle(false);
   };
 
@@ -227,16 +288,22 @@ const HomepageData = () => {
       setEventsToggle(false);
       setBirthsToggle(false);
       setDeathsToggle(false);
+      indexReset();
     } else if (holidaysToggle === true) setHolidaysToggle(false);
   };
 
   return (
     <div className="event-page">
-      <p>Now Showing Events Happened in Date - {date1}</p>
+      <p>Now Showing Events Which Happened on Date: {date1}</p>
       <div className="dropdown">
         <button onClick={dropDownFilter} className="dropbtn">
           Filter Pages
         </button>
+        <label>select a date</label>
+        <input className="newDate" id="newDate" type="date" min="2023-01-01" max="2023-12-31" defaultValue="2023-02-09">
+        </input>
+        <button type="submit" className="submit-button" onClick={subButton}>submit</button>
+        
         <div id="myDropdown" className="dropdown-content">
           <button onClick={handleBirthsFilter}>Births</button>
           <button onClick={handleDeathsFilter}>Deaths</button>
@@ -332,14 +399,15 @@ const HomepageData = () => {
             )}
 
             <button onClick={handleSetIndex}>Next</button>
+            <button onClick={handleSetIndex2}>Back</button>
+            <button onClick={indexReset}>Reset</button>
             <p>
-              Current Page {index} / {eventsExtract.length}
+              current page {index} / {eventsExtract.length}
             </p>
-            </>
-            )}
-          </div>
+          </>
+        )}
       </div>
-  );
-};
+    </div>
+)};
 
       export default HomepageData;
